@@ -57,13 +57,10 @@ order by 1;
 select ename, sal, (sal+100) *1.5 as 인상급여
 from emp;
 
-select ename, sal, (sal+100) *1.5 인상급여
-from emp;
-
 -- ver1. 
 select ename, sal, (sal+100) *1.5 '인상 급여'
 from emp
-order by '인상 급여'; -- semetic error(정렬이 안됨)
+order by '인상 급여'; 
 
 -- ver2.
 select ename, sal, (sal+100) *1.5 '인상 급여'
@@ -81,15 +78,14 @@ order by 3;
 세금은 급여의 10%로 간주한다.
 정렬은 실수령액으로 
 */
-select ename 직원, sal, (sal *0.9) as 실수령액
+select ename 직원, sal, (sal *0.9) as '실수령액'
 from emp
-order by 3;
-
+-- order by 3;
+order by '실수령액';
 
 /*
 null 값에 대한 정리
 */
-
 -- emp 테이블에서 모든 사원들의 각각 연봉을 출력, 정렬
 select ename, deptno, job, sal as Salary, sal * 12 + comm as AnnualSalary 
 from emp
