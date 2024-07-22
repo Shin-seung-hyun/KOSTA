@@ -36,8 +36,8 @@ package step1;
 @FunctionalInterface
 interface MyFunction{ // 추상메소드가 있어야 한다.
 	
-	//public abstract int max(int a, int b);
-	int max(int a, int b); // 더 큰 수 반환하는 기능의 Template
+	int max(int a, int b); //public abstract int max(int a, int b);
+						   // 더 큰 수 반환하는 기능의 Template
 }
  
 public class LambdaTest1 {

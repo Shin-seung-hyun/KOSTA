@@ -69,8 +69,7 @@ public class FunctionalTest1 {
 		
 		System.out.print("[");
 		for(Integer i : list) {
-			//만약에 i 값이 짝수라면 
-			//해당하는 값을 출력
+			//만약에 i 값이 짝수라면 해당하는 값을 출력
 			
 			if(p.test(i)) 
 				c.accept(i);			 
