@@ -33,7 +33,7 @@ public class FunctionalTest1 {
 		Supplier<Integer> s = () -> (int) (Math.random() * 100 +1); // 1-100사이의 난수 발생
 		
 		List<Integer> list = new ArrayList<>();
-		makeRandomList(s, list);
+		makeRandomList(s, list); 
 		
 		System.out.println(list);
 		

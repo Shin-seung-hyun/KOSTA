@@ -4,7 +4,9 @@ package step1;
  * LdmdbaTest2에서 기능의 매개변수로 인터페이스를 주입했다.
  * 훨씬 더 간단한 코드로 다시 작성해보자
  *
+ * 추상메소드의 4가지 패턴
  * @FunctionalInterface
+ *  0. 매개변수 X, 반환타입 X // 잘 안쓰임 Runnable void run()
  *	1. 매개변수 O, 반환타입 X
  *	2. 매개변수 X, 반환타입 O 
  *	3. 매개변수 O, 반환타입 O
