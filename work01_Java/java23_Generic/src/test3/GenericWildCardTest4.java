@@ -2,7 +2,7 @@ package test3;
 
 import java.util.*;
 
-abstract class Animal{ //abstract는 객체 생성의 대상이 안된다. super로써만 가능함.
+abstract class Animal{ 		//abstract 는 객체 생성의 대상이 아니다. super 로써만 가능함.
 	public void eat() {System.out.println("Animal eating...");}
 }
 
@@ -24,38 +24,40 @@ class Cat extends Animal{
 }
 
 public class GenericWildCardTest4 {
-	public static void main(String[] args) {
-		
-		//왜 제한된 파라미터 타입을 써야하는지 알아보자
-		
-
-		List<Animal> animals = List.of(new Dog(), new Cat(), new Dog());
-		System.out.println( "List<Animal> animals 적용 : ");
-		takeAnimals(animals);
-		
-		System.out.println( "\nList<? extends Animal> animals 적용 : ");
-		takeAnimals2(animals);
-		
-		System.out.println("\n======== List<Animal> animals 적용 =========");
-		List<Dog> dogs = List.of(new Dog(),new Dog());
-		//takeAnimals(dogs);	 //Error 발생
-		//Q. dogs가 animals가 할당 되야하지 않느냐? 다형성이 아닌가??
-		//A. 다형성에서 
-		
-		System.out.println("\n======== List<? extends Animal> animals 적용 =========");
-		List<Dog> dogs2 = List.of(new Dog(),new Dog());
-		takeAnimals2(dogs2);
-	}
 	
-	//List<Dog> dog는 할당 안된다 ... 다형성적용 안됨
 	public static void takeAnimals(List<Animal> animals){	
 		for(Animal a : animals) a.eat();
 	}
 	
-	//wild card 적용하는 기능 정의
-	//List< ? extends Animal>을 하면 heterogeneous, homogeneous 모두 가능함.
-	public static void takeAnimals2(List<? extends Animal> animals) {
+	public static void takeAnimals2(List<? extends Animal> animals) { // heterogeneous, homogeneous 모두 가능하다.
 		for(Animal a : animals) a.eat();
+	}
+	
+	public static void main(String[] args) {
+		
+		//왜 제한된 파라미터 타입을 써야하는지 알아보자!
+		List<Animal> animals = List.of(new Dog(), new Cat(), new Dog()); // 다형성
+																	     // 부모의 타입 배열 안에 자식 객체들을 생성할 수 있다.
+		
+		System.out.println("\n======== List<Animal> animals 적용 1 ==================");
+		takeAnimals(animals);
+		
+		System.out.println("\n======== List<? extends Animal> animals 적용 1 =========");
+		takeAnimals2(animals);
+		
+		//------------------------------------------------------------------------
+		
+		List<Dog> dogs = List.of(new Dog(), new Dog(), new Dog());
+		
+		System.out.println("\n======== List<Animal> animals 적용 2 ==================");
+		takeAnimals(dogs);	 // Error 발생
+							 // Q. 다형성을 적용해 List<Animal> animals = List<Dog> dogs; 이 돼야 하는거 아닌가?
+							 // A. List<Dog> dog 를 바로 할당할 수 없다. Animal 타입에 Dog 를 저장할 수 있지만(= 다형성), 참조형으로 다형성을 이용할 수 없다.)
+							 // Animal a = new Dog(); (O) 
+							 // List<Animal> animals = List<Dog> dogs; (X)
+		
+		System.out.println("\n======== List<? extends Animal> animals 적용 2 =========");
+		takeAnimals2(dogs);
 	}
 	
 }
