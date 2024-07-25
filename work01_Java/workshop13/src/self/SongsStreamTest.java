@@ -67,19 +67,39 @@ public class SongsStreamTest {
 		
 		//방법2)
 		Optional<Song> findSong2 = songs.stream()
-									.filter(i -> i.getYear() == 1995)
-									.findFirst();
+										.filter(i -> i.getYear() == 1995)
+										.findFirst();
 		System.out.println(findSong2);
 		
 		//방법3)
 		Optional<Song> result3 = songs.stream()
-				.filter(s-> s.getYear() == 1995)
-				.findFirst();
+										.filter(s-> s.getYear() == 1995)
+										.findFirst();
 		
 		if(result3.isPresent()) 
 			 System.out.println(result3.get());
 		else
 			System.out.println("해당 년도의 노래는 찾을수 없습니다.");	
+		
+		
+		System.out.println("\n================= Optional의 예외처리1 =========================");
+		Song song1995 = songs.stream()
+							.filter(s-> s.getYear() == 1995)
+							.findFirst()
+							.orElseThrow( RuntimeException :: new); //findFirst가 없으면 예외 처리를 하겠다.
+		System.out.println(song1995);
+		
+		
+		System.out.println("\n================= Optional  =========================");
+		List<Song> firstSong = songs.stream()
+									.filter(s-> s.getYear() == 1995)
+									.limit(1)
+									.collect(Collectors.toList());
+		
+		System.out.println(firstSong);
+				
+				
+				
 		
 	}
 }
