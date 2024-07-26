@@ -20,7 +20,6 @@ public class StudentCollectionTest {
 		totalList.add(new Student("박나래", "여", 93));
 		
 		//1. 남학생만 묶어 List 생성
-			
 		List<Student> maleList = totalList.stream()
 										.filter(i-> i.getGender().equals("남"))
 										.toList();
@@ -49,6 +48,14 @@ public class StudentCollectionTest {
 				.sorted(Comparator.comparing(Student::getScore).reversed())
 				.forEach(System.out::println);
 		
+		totalList.stream()
+				.sorted(Comparator.comparing((Student i) -> i.getScore()).reversed())
+				.forEach(System.out::println);
+		
+		totalList.stream()
+				.sorted(Comparator.comparing(i -> i.getScore()))
+				.forEach(System.out::println);
+				
 		
 		System.out.println("\n--------------------------------------\n");
 		
