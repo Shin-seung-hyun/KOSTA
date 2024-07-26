@@ -72,3 +72,5 @@ drop table mycustom; -- 구조 삭제
 desc mycustom;
 
 
+drop table outerb;
+
