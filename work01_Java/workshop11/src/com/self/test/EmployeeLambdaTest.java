@@ -8,6 +8,10 @@ import com.self.service.EmployeeService;
 import com.self.vo.Employee;
 
 public class EmployeeLambdaTest {
+	
+	private static void raiseSalary(List<Employee> list, Consumer<Employee> c) {
+		for(Employee e : list) c.accept(e); // 모든 직원의 급여가 15% 인상됨
+	}
 
 	public static void main(String[] args) {
 		EmployeeService service = new EmployeeService();
@@ -21,18 +25,14 @@ public class EmployeeLambdaTest {
 		
 		
 		//MVC 패턴을 생각하지 않고 오직 Lambda 적으로만 만들었을 때,
-		System.out.println("\n=========== 1. 직원들 급여 인상 정보 출력 ==============");
+		System.out.println("\n=========== 1. 직원들 급여 15% 인상 정보 출력 ==============");
 		Consumer<Employee> consumer = x->{
-			x.setSalary(Math.round(x.getSalary() * 1.5));
+			x.setSalary(Math.round(x.getSalary() * 1.15));
 		};
 		
 		//raiseSalary(employees, consumer.andThen(System.out.println(consumer)));
 		raiseSalary(employees, consumer.andThen(System.out::println));
 	
-	}// main
-	
-	private static void raiseSalary(List<Employee> list, Consumer<Employee> c) {
-		for(Employee e : list) c.accept(e); // 모든 직원의 급여가 15% 인상됨
 	}
 
 }

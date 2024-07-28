@@ -6,6 +6,7 @@ abstract class Animal{ 		//abstract 는 객체 생성의 대상이 아니다. su
 	public void eat() {System.out.println("Animal eating...");}
 }
 
+//vo class 
 class Dog extends Animal{
 	@Override
 	public void eat() {System.out.println("Dog eat");}
@@ -14,6 +15,7 @@ class Dog extends Animal{
 	
 }
 
+//vo class 
 class Cat extends Animal{
 	
 	@Override
@@ -23,8 +25,10 @@ class Cat extends Animal{
 	
 }
 
+
 public class GenericWildCardTest4 {
 	
+	//service class 
 	public static void takeAnimals(List<Animal> animals){	
 		for(Animal a : animals) a.eat();
 	}
@@ -33,6 +37,7 @@ public class GenericWildCardTest4 {
 		for(Animal a : animals) a.eat();
 	}
 	
+	//test class
 	public static void main(String[] args) {
 		
 		//왜 제한된 파라미터 타입을 써야하는지 알아보자!
@@ -50,7 +55,7 @@ public class GenericWildCardTest4 {
 		List<Dog> dogs = List.of(new Dog(), new Dog(), new Dog());
 		
 		System.out.println("\n======== List<Animal> animals 적용 2 ==================");
-		takeAnimals(dogs);	 // Error 발생
+		//takeAnimals(dogs);	 // Error 발생
 							 // Q. 다형성을 적용해 List<Animal> animals = List<Dog> dogs; 이 돼야 하는거 아닌가?
 							 // A. List<Dog> dog 를 바로 할당할 수 없다. Animal 타입에 Dog 를 저장할 수 있지만(= 다형성), 참조형으로 다형성을 이용할 수 없다.)
 							 // Animal a = new Dog(); (O) 

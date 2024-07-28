@@ -11,7 +11,7 @@ public class EmployeeService {
 									   Consumer<Employee> c){
 		
 		for(Employee e : emps) {
-			e.setSalary(Math.round(e.getSalary() * 1.5));
+			e.setSalary(Math.round(e.getSalary() * 1.15));
 			c.accept(e);
 		}
 		
