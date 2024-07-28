@@ -59,27 +59,38 @@ public class SongsStreamTest {
 		
 		System.out.println("\n======= 4.1995년도에 발매된 노래 추출해서 한 개 출력 ===========");
 		
-		//방법1)
+	//방법1)
+		System.out.println("방법 1)");
 		songs.stream()
 			  .filter(i -> i.getYear() == 1995 )
 			  .limit(1)
 			  .forEach(System.out::print);
 		
-		//방법2)
-		Optional<Song> findSong2 = songs.stream()
-										.filter(i -> i.getYear() == 1995)
-										.findFirst();
-		System.out.println(findSong2);
 		
-		//방법3)
-		Optional<Song> result3 = songs.stream()
+	//방법2)
+		System.out.println("\n방법 2)");
+		Optional<Song> result2 = songs.stream()
 										.filter(s-> s.getYear() == 1995)
 										.findFirst();
+		// 출력1)
+		System.out.println(result2); //Optional[Hurt, Nine Inch Nails ..]
+
 		
-		if(result3.isPresent()) 
-			 System.out.println(result3.get());
+		// 출력2)
+		if(result2.isPresent()) 
+			 System.out.println(result2.get());  //Hurt, Nine Inch Nails
 		else
 			System.out.println("해당 년도의 노래는 찾을수 없습니다.");	
+		
+		
+	//방법3)	
+		System.out.println("\n방법 3)");
+		List<Song> firstSong = songs.stream()
+									.filter(s-> s.getYear() == 1995)
+									.limit(1)
+									.collect(Collectors.toList());
+		
+		System.out.println(firstSong);
 		
 		
 		System.out.println("\n================= Optional의 예외처리1 =========================");
@@ -89,17 +100,7 @@ public class SongsStreamTest {
 							.orElseThrow( RuntimeException :: new); //findFirst가 없으면 예외 처리를 하겠다.
 		System.out.println(song1995);
 		
-		
-		System.out.println("\n================= Optional  =========================");
-		List<Song> firstSong = songs.stream()
-									.filter(s-> s.getYear() == 1995)
-									.limit(1)
-									.collect(Collectors.toList());
-		
-		System.out.println(firstSong);
-				
-				
-				
+			
 		
 	}
 }

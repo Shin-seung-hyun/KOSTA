@@ -23,12 +23,15 @@ public class StudentCollectionTest {
 		List<Student> maleList = totalList.stream()
 										.filter(i-> i.getGender().equals("남"))
 										.toList();
-	
+		
+		List<Student> maleList2 = totalList.stream()
+								 		.filter(s->s.getGender().equals("남"))
+								 		.collect(Collectors.toList());
+		
 		 maleList.forEach(i-> System.out.println(i));
 	
 		
 		System.out.println("\n--------------------------------------\n");
-		
 		//2. 점수를 기준으로 오름차순으로 정렬한 새 스트림 얻기..학생의 이름과 성적을 출력
 		System.out.println("정렬 방법1");
 		totalList.stream()
@@ -39,11 +42,12 @@ public class StudentCollectionTest {
 		totalList.stream()
 				.sorted(Comparator.comparing(Student::getScore))
 				.forEach(System.out::println);
-				
+				//.forEach(s-> System.out.println(s.getName()+", "+s.getScore()));
+		
 		
 		System.out.println("\n--------------------------------------\n");
-		
 		//3. 점수를 기준으로 내림차순으로 정렬한 새 스트림 얻기..학생의 이름과 성적을 출력
+		
 		totalList.stream()
 				.sorted(Comparator.comparing(Student::getScore).reversed())
 				.forEach(System.out::println);
@@ -58,12 +62,20 @@ public class StudentCollectionTest {
 				
 		
 		System.out.println("\n--------------------------------------\n");
-		
 		//4. 학생 이름을 키, 학생의 점수를 값으로 갖는 Map 생성
 		//   Collectors.toMap()을 사용
 		Map<String, Integer> map = totalList.stream()
 											.collect(Collectors.toMap(Student::getName, Student::getScore));
 		
+		Map<String, Integer> map2 = totalList.stream()
+											.collect(
+												Collectors.toMap(
+													s -> s.getName(), //Student 객체에서 키가 될 부분 리턴
+													s -> s.getScore() //Student 객체에서 값이 될 부분 리턴
+												)
+											);
+			
+		System.out.println(map);
 		map.forEach((k,v)-> System.out.println(k+"= "+v));
 
 	}

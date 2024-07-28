@@ -73,21 +73,15 @@ public class Stream01StudentList {
 		double avg2 = students.stream()
 							.mapToInt(student -> student.getScore())
 							.peek(student -> System.out.println(student + " "))
-							.average()
-							.getAsDouble();
+							.average() 		// OptionalDouble 반환
+							.getAsDouble();		
 		System.out.println("Result AVG2: " + avg2);	
 		
 		//[map] Stream 내 값들을 반환해서 새로운 스트림을 생성하는 기능
 		System.out.println("\n============= map =============");
 		long count =  students.stream()
 								.map(student -> student.getName())					
-								.peek(student -> System.out.println(student + " "))
-								.count();
-		
-		
-		long count2 =  students.stream()
-								.map(student -> student.getName())
-								.peek(student -> System.out.println(student + " ")) 
+								.peek(student -> System.out.println(student + " ")) //현재 peek()이 안됨
 								.count();
 		
 		System.out.println( "학생수 :" + count);
@@ -100,12 +94,11 @@ public class Stream01StudentList {
 		System.out.println("King이 존재합니까? :" + find);
 		
 		
-		
         List<String> items = Arrays.asList("apple", "banana", "orange");
 
         long cnt = items.stream()
-                .peek(item -> System.out.println("Processing: " + item)) // 중간 연산, 각 요소를 출력
-                .count(); // 최종 연산, 요소의 개수를 셈
+		                .peek(item -> System.out.println("Processing: " + item)) // 중간 연산, 각 요소를 출력
+		                .count(); // 최종 연산, 요소의 개수를 셈
 
         System.out.println("Total items: " + cnt);
 		

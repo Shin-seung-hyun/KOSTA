@@ -19,7 +19,6 @@ public class OptionalStreamTest {
 		
 		List<Integer> list = new ArrayList<Integer>(); // 값이 없는 리스트 생성
 		
-		
 		//예외발생
 		// java.util.NoSuchElementException: 
 		//이런 경우에 Optional 이 필요하다.
@@ -39,7 +38,7 @@ public class OptionalStreamTest {
 		
 		// 방법 1.
 		OptionalDouble optional= list.stream()
-									//.mapToInt(i-> i.intValue()) // i는 Integer 클래스 i.intValue()는 Integer 클래스의 메소드이다.
+									//.mapToInt(i-> i.intValue()) //i는 Integer 클래스, i.intValue()는 Integer 클래스의 메소드이다.
 									.mapToInt(Integer :: intValue)
 									.average();
 		
