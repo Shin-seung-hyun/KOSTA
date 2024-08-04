@@ -52,13 +52,28 @@ else가 존재하지 않고 when 조건에 부합하는 경우가 아닐 때는 
 */
 
 -- 이름, 업무, 급여, 커미션을 검색
--- manager 라면 comm이 sal의 150%를 받는다.
+-- job이 manager 라면 comm이 sal의 150%를 받는다.
 -- analysist라면 comm이 sal의 ~%를 받는다.
 -- 그외 직원은 sal 130%받는다.
 
 select ename, job, sal, comm,
 	case job
 		when 'manager' then sal * 1.5
+        else sal * 1.3
+	end as bonus
+from emp;
+
+
+select ename, job, sal, comm,
+	case job
+		when 'manager' then sal * 1.5
+        else sal * 1.3
+	end as bonus
+from emp;
+
+select ename, job, sal, comm,
+	case 
+		when job = 'manager' then sal * 1.5
         else sal * 1.3
 	end as bonus
 from emp;

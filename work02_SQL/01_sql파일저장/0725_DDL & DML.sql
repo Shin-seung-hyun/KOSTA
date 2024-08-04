@@ -17,11 +17,12 @@ DML
 drop table custom;
 
 create table custom(
-num int auto_increment,   -- client에서 입력될 때 DB가 자동으로 입력하는 값 
-name varchar(10) not null, -- client에서 입력하는 값
-addr varchar(100),
-birthday date,
-primary key(num)); -- 테이블 레벨에서 제약 조건 추가하기
+	num int auto_increment,   -- client에서 입력될 때 DB가 자동으로 입력하는 값 
+	name varchar(10) not null, -- client에서 입력하는 값
+	addr varchar(100),
+	birthday date,
+	primary key(num)
+); -- 테이블 레벨에서 제약 조건 추가하기
 
 desc custom;
 
@@ -47,7 +48,7 @@ select * from custom;
 삭제 관련된 SQL 3가지
 어떻게 다른지 아는 것이 중요하다!!!!!
 
-1. drop : 구조를 남긴다.
+1. drop : 테이블 자체를 삭제
 2. truncate : drop + create
 3. delete : where 절과 함께 사용한다. 부분삭제이다. 값이 다 삭제되도 테이블의 구조COMM는 남는다.
 
