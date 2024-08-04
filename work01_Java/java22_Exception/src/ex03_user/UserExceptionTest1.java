@@ -3,14 +3,14 @@ package ex03_user;
 
 class User{
 	//임의의 값 x,y가 함수 호출 시, 인자값으로 들어온다.
-	public void calc(int x, int y) throws ArithmeticException{ //2. 
+	public void calc(int x, int y) throws ArithmeticException{ //3.
 		
 		
 		System.out.println("2. calc(x, y) 함수 호출...");
 		if(x == 0) {
 			
 			//ArithmeticException을 발생시킨다.
-			throw new ArithmeticException(); // 1. JVM이 아닌 사용자가 만듦.
+			throw new ArithmeticException(); // 2. JVM이 아닌 사용자가 만듦.
 			
 		}
 			
@@ -28,8 +28,9 @@ public class UserExceptionTest1 {
 		User user = new User(); 	
 		
 		try {
-			user.calc(0,10); //
-		} catch (ArithmeticException e) {
+			user.calc(0,10); // 1.
+
+		} catch (ArithmeticException e) { // 4.
 			System.out.println("폭탄 처리... x는 0이다.");
 		}
 		

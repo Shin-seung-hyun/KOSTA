@@ -16,13 +16,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+//try - with - resources 문
 public class ExceptionTest2 {
 
 	public static void main(String[] args){
-		
-		
+
 		try(FileWriter file = new FileWriter("data.txt");
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in)) ) {
+
 			file.write("Hello World");
 			System.out.println("파일 출력");
 			

@@ -20,9 +20,7 @@ class FileReading2{
 			//e.printStackTrace();
 		}
 		finally {
-			
 			try {
-
 				System.out.println("자원 반환...");
 				reader.close();
 			} catch (IOException e) {

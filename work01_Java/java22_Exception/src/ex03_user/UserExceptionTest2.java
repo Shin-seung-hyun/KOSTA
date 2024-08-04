@@ -6,24 +6,23 @@ class Boom extends Exception{
 	
 	public Boom() {
 		this("x가 0이면 안되요.. 분모가 될 숫자거든요");
-	}
+	} //5.
 	public Boom(String msg) {
 		super(msg);
 	}
-
 	
 }
 
 class User2{
 	//임의의 값 x,y가 함수 호출 시, 인자값으로 들어온다.
-	public void calc(int x, int y) throws Boom{ //2. 
+	public void calc(int x, int y) throws Boom{ //3.
 		
 		
 		System.out.println("2. calc(x, y) 함수 호출...");
 		if(x == 0) {
 			
 			//throw new Boom();
-			throw new Boom("x가 0이면 안되요.. 분모가 될 숫자거든요"); // 1. JVM이 아닌 사용자가 만듦.
+			throw new Boom("x가 0이면 안되요.. 분모가 될 숫자거든요"); // 2. JVM이 아닌 사용자가 만듦.
 			
 		}
 			
@@ -41,8 +40,9 @@ public class UserExceptionTest2 {
 		User2 user = new User2(); 	
 		
 		try {
-			user.calc(0,10); //
-		} catch (Boom e) {
+			user.calc(0,10); // 1.
+
+		} catch (Boom e) { // 4.
 			System.out.println(e.getMessage());
 		}
 		
