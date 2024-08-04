@@ -17,7 +17,6 @@ import config.ServerInfo;
  
  서버에 파편적인 정보를 외부에 모듈화(메타데이터화) 시켜야 한다.
  
- 
  */
 
 public class JDBC4ProcessTest3 {
@@ -45,11 +44,11 @@ public class JDBC4ProcessTest3 {
 			System.out.println("2. DB Connection 성공");
 			
 			
-			//3. 등록 create
+			//-------------------------------------------------------------------
+//			//3. 등록 create
 //			String query = "insert into custom(id, name, address) values(?,?,?)";
 //			PreparedStatement ps = conn.prepareStatement(query) ;// 미리 쿼리문의 컴파일만 실행한다. 
-			
-			//4. 바인딩 및 쿼리문 실행
+//			
 //			ps.setInt(1,222);
 //			ps.setString(2, "Tomas");
 //			ps.setString(3,"Brandon");
@@ -64,8 +63,11 @@ public class JDBC4ProcessTest3 {
 //			
 //			System.out.println(ps.executeUpdate() + " Row Record 등록 성공");
 			
-			//3. 삭제 delete
-			//delete id 값이 2인 사람을 삭제
+			
+			
+			//-------------------------------------------------------------------
+//			//3. 삭제 delete
+//			//delete id 값이 2인 사람을 삭제
 //			String query = "delete from custom where id =?";
 //			PreparedStatement ps = conn.prepareStatement(query);
 //			System.out.println("PreparedStatement 생성");
@@ -75,7 +77,9 @@ public class JDBC4ProcessTest3 {
 //			System.out.println(ps.executeUpdate() + " Row Record 삭제 성공");
 			
 			
-			//3. 수정 update
+			
+			//-------------------------------------------------------------------
+//			//3. 수정 update
 //			String query = "update custom set name =?, address=?  where id = ?";
 //			PreparedStatement ps = conn.prepareStatement(query);
 //			System.out.println("PreparedStatement 생성");
@@ -86,6 +90,9 @@ public class JDBC4ProcessTest3 {
 //			
 //			System.out.println(ps.executeUpdate() + " Row Record 수정 성공");
 			
+			
+			
+			//-------------------------------------------------------------------
 			//3. 조회 select
 			String query = "select id, name, address from custom";
 			PreparedStatement ps = conn.prepareStatement(query);

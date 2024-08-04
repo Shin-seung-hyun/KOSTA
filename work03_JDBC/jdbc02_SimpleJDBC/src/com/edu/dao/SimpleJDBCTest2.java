@@ -28,6 +28,7 @@ public class SimpleJDBCTest2 {
 		user = p.getProperty("jdbc.mysql.user");
 		pass = p.getProperty("jdbc.mysql.pass");
 		
+		//jvm에 dirver 올리기
 		Class.forName(driver);
 		System.out.println("1. Driver Loading 성공...");
 			

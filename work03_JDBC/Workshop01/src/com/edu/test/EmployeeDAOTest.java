@@ -7,7 +7,6 @@ import com.edu.vo.Employee;
 
 public class EmployeeDAOTest {
 
-
 	public static void main(String[] args) throws SQLException {
 		
 		EmployeeDAOImpl dao = EmployeeDAOImpl.getInstance();

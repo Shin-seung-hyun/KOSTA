@@ -18,16 +18,18 @@ import java.sql.SQLException;
 
 public class JDBC4ProcessTest1 {
 	
+	//생성자에서 모든 과정 진행
 	public JDBC4ProcessTest1() {
 		
 		
 		try {
 			//1. 드라이버 로딩
+				// JDBC 드라이버를 사용하기 위해 MySQL Driver 클래스를 메모리에 올린다.
 			Class.forName("com.mysql.cj.jdbc.Driver"); ////드라이버의 실제 이름을 넣는다. FQCN
 			System.out.println("Driver Loading Success...");
 			
 			
-			//2. 서버 연결
+			//2. DB 서버 연결
 			String url = "jdbc:mysql://127.0.0.1:3306/kosta?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8";
 			Connection conn= DriverManager.getConnection(url, "root", "1234");
 			System.out.println("DB Connection...");
