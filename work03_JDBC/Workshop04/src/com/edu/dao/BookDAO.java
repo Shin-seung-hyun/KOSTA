@@ -82,7 +82,7 @@ public class BookDAO {
 		 String query = "select b.title, b.price, a.name from book b join author a on b.author = a.authorno";
 		 
 		try(Connection conn = getConnection();
-				PreparedStatement ps = conn.prepareStatement(query))  {
+			PreparedStatement ps = conn.prepareStatement(query))  {
 				
 				ResultSet rs = ps.executeQuery();
 				
@@ -104,7 +104,7 @@ public class BookDAO {
 		 String query = "select b.title, b.isbn, b.publisher from book b join author a on b.author = a.authorno where a.name like ?";
 		 
 		try(Connection conn = getConnection();
-				PreparedStatement ps = conn.prepareStatement(query))  {
+			PreparedStatement ps = conn.prepareStatement(query))  {
 				
 				ps.setString(1, name.charAt(0) + "%");
 				ResultSet rs = ps.executeQuery();
