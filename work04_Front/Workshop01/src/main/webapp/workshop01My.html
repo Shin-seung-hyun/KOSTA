@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>인사이드 아웃 화면</title>
+	<style type = "text/css">
+		body{
+			width : 800px;
+			height : 750px; 
+			border : 5px solid crimson;
+			margin : auto;
+			margin-top: 50px;
+		}
+		
+		#header{
+			text-align: center;
+		}	
+		
+		#content{
+			margin-left : 40;
+			padding: 40px;
+			
+		}
+	</style>
+</head>
+
+<body>
+	<div id ="header">
+		<h2> ★★★★ 인사이드 아웃2 ★★★★</h2>
+		<img alt="inside2Img" src="./image/inside.jpg"><br><br>
+	</div>	
+	<div id = "content">
+		상영관 : <select>
+					<option value ="CGV"> CGV</option> 
+					<option value ="MEGA">메가박스</option>
+				</select>		
+		날짜 선택 : <input type="date" name="date"> <br><br>
+		<fieldset>
+			<legend> 시간 선택</legend>
+			<input type="radio" name ="시간" value = "time1">8:30
+			<input type="radio" name ="시간" value = "time2">11:00
+			<input type="radio" name ="시간" value = "time3">14:20
+			<input type="radio" name ="시간" value = "time4">17:25	
+			<input type="radio" name ="시간" value = "time5">20:10
+			<input type="radio" name ="시간" value = "time6">23:05											
+		</fieldset> 
+		요금 <del>W9,000</del>  <ins>W5</ins>,<ins>000</ins> <br><br>
+		인원 <input type="text" value=0><br><br>
+		금액 <input type="text" value=0><br><br> 
+		<input type="checkbox" name ="option" value = "option"> 옵션
+		<fieldset> 
+			<input type="checkbox" name ="popcorn" value = "popcorn">팝콘
+			<input type="checkbox" name ="coke" value = "coke">콜라
+		</fieldset>
+	</div>
+</body>
+</html>
