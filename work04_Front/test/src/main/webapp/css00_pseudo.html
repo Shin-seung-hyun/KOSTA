@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>CSS</title>
+      <style>
+        .html{
+          color: purple;
+        }
+        .css{
+          text-decoration : underline;
+        }
+        .html .css{
+            border: 1px solid;
+        }
+        #id-selector{
+            font-size : 20px;
+        }
+
+        /* 가상 클래스*/
+        li:first-child{color : red;}
+        li:last-child{color : blue;}
+
+        /* 앵커 요소와 관련된 가상 클래스*/
+        a:link{color : chartreuse;}
+        a:visited{color: hotpink;}
+
+
+        /* 사용자 동작과 관련된 가상 클래스*/
+        a:focus{background : yellow;}
+        a:hover{font-weight: bold;}
+        a:active{color : red;}
+
+      </style>
+  </head>
+  <body>
+    <dl>
+      <dt class ='html'>HTML<dt>
+        <dd>HTML은 문서의 구조를 나타냅니다.</dd>
+      <dt class = 'css'>CSS<dt>
+        <dd>CSS는 문서의 스타일을 나타냅니다.</dd>
+    </dl>
+    <p id ="id-selector">id 선택자는 #기호를 사용한다.</p>
+
+    <!--문서 구조와 관련된 가상 클래스-->
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+
+    <!-- 앵커 요소와 관련된 가상 클래스-->
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.google.com">구글</a>
+    <a href="http://www.daum.net">다음</a>
+
+  </body>
+</html>
