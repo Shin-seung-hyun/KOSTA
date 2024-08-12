@@ -6,15 +6,23 @@
 	<title>Insert title here</title>
 	<style>
 		body {
+			background-position: bottom;
 			position: relative;
+			
 		}
 		body::before {
-			background: url("./image/cafe.jpg");
-			background-size: cover; 
 			content: "";
+			width: 80%;
+			height: 50%;
+			background: url("./image/cafe.jpg") center center;
+			background-size: cover;
 			position: absolute;
+			top: 20%;
+			left: 10%;
+			opacity: 0.3;
+			border-radius: 50%;
 		}
-	</style>
+	</style>	
 </head>
 <body>
 	<h1>What is Lorem Ipsum</h1>
