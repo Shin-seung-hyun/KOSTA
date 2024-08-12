@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <form action="http://localhost:8080" method ="post">
+            <h1>Form 관련 요소</h1>
+
+            <fieldset>
+                <legend> 필수 정보</legend>
+
+                <!--label 방법 1-->
+                <label> 아이디 : <input type ="text" placeholder="영문만 입력"> </label><br>
+
+                <!--label 방법2-->
+                <label for="pw"> 비밀번호</label> :
+                <input type="password" id="pw"><br>
+                성별 :   <label> <input type="radio" name ="gender">남자, </label>
+                        <label> <input type ="radio" name ="gender" checked> 여자 </label><br>
+            </fieldset>
+
+            <fieldset>
+                <legend> 부가 정보 </legend>
+
+                취미 :  <input type ="checkbox" name ="hobby" checked> 등산
+                        <input type ="checkbox" name ="hobby"> 운동
+                        <input type="checkbox" name ="hobby"> 음악감상<br><br>
+                파일입력 : <input type ="file"> <br>
+                        <input type="submit" value ="전송"><br>
+                        <input type ="reset"><br>
+                        <input type ="button" value ="버튼 이름"><br>
+                        <input type ="image" src ="../../../../front01_HTML5/src/main/webapp/image/login.png" alt ="로그인 버튼" width="80"> <br><br>
+
+                <label>사는 지역 :
+                    <select>
+                        <option>서울</option>
+                        <option>경기</option>
+                        <option selected>강원</option>
+                    </select>
+                 </label> <br>
+
+                자기소개 : <textarea cols="30" rows ="3" placeholder="자기소개는 짧게하기"></textarea><br>
+            </fieldset>
+
+            <button type = "submit"> 전송하는 버튼</button><br>
+            <button type = "reset">취소하는 버튼</button><br>
+        </form>
+    </body>
+</html>
