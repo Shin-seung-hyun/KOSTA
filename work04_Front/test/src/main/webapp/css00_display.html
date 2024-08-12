@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .inline{
+            font-size : 20px;
+
+            /* 적용 안됨 */
+            width : 100px;
+            height : 100px;
+
+            /* 적용됨  : maring,padding,border는 좌우에만 적용됨 */
+
+            border : 10px solid black;
+            background : pink;
+        }
+
+        /* 단 margin collapse 발생 */
+        .block{
+            font-size : 20px;
+            width : 100px;
+            height : 100px;
+            margin : 10px;
+            padding : 10px;
+            border : 10px solid black;
+            background : pink;
+        }
+
+        .inline-block{
+            font-size : 20px;
+            width : 100px;
+            height : 100px;
+            margin : 10px;
+            padding : 10px;
+            border : 10px solid black;
+            background : pink;
+        }
+
+
+        .inline2{
+            font-size : 20px;
+            border : 10px solid black;
+            background : pink;
+        }
+
+        .block2{
+            font-size : 20px;
+            border : 10px solid black;
+            background : pink;
+        }
+
+        .inline-block2{
+            font-size : 20px;
+            border : 10px solid black;
+            background : pink;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+    <div>
+        <div style="display: none "> box1</div>
+    </div>
+    <div>
+        <div style="display: inline" class="inline"> box2</div>
+    </div>
+    <div>
+        <div style="display: block" class="block"> box3</div>
+    </div>
+    <div>
+        <div style="display: inline-block" class="inline-block"> box4</div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!--
+        inline 과 inline-block 은 여러개가 배치될 시, 한칸 띄어쓰기/개행을 한 칸의 여백으로 인정한다.
+    -->
+        <div>
+            <div style="display: inline" class="inline2"> box1</div><div style="display: inline" class="inline2"> box2</div><div style="display: inline" class="inline2"> box3</div>
+            <div style="display: inline" class="inline2"> box4</div>
+            <div style="display: inline" class="inline2"> box5</div>
+        </div>
+        <div>
+            <div style="display: block" class="block2"> box1</div><div style="display: block" class="block2"> box2</div><div style="display: block" class="block2"> box3</div>
+            <div style="display: block" class="block2"> box4</div>
+            <div style="display: block" class="block2"> box5</div>
+        </div>
+        <div>
+            <div style="display: inline-block" class="inline-block2"> box1</div><div style="display: inline-block" class="inline-block2"> box2</div><div style="display: inline-block" class="inline-block2"> box3</div>
+            <div style="display: inline-block" class="inline-block2"> box4</div>
+            <div style="display: inline-block" class="inline-block2"> box5</div>
+
+        </div>
+
+</body>
+</html>

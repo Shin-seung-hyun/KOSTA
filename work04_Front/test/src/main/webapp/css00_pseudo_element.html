@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p::before{
+            color : red;
+            content : "before 가상 요소를 활용한 내용";
+        }
+        p::after{
+            color : blue;
+            content : "after 가상 요소를 활용한 내용";
+        }
+
+        /* 창의 크기에 따라 적용되는 라인수가 달라짐*/
+        p::first-line {
+            color: gray;
+        }
+
+        p::first-letter{
+            font-size: 3em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+        labore et
+        dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+    </p>
+
+</body>
+</html>
