@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<div class = "main">
+			<input type ="text" id ="id">
+			<input type ="password" id ="pwd">	
+			<button id = "login-btn">LOGIN</button>
+			
+		</div>
+		
+		<script>
+		
+		/* idForm, pwdForm 은 값이 아니라 폼 객체이다.  */
+			const idForm = document.getElementById("id");
+			const pwdForm = document.querySelector("#pwd");
+			const loginBtn = document.querySelector("#login-btn");
+			
+			/* 버튼을 클릭하면(onclick 솔성을 사용 안하는 방식) idForm, pwdForm 에 입력된 값을 받아서 콘솔/alert 창 출력 */
+/* 			loginBtn.addEventListener('click', function() {
+				//버튼 클릭시 처리하고자 하는 코드를 작성
+			}); */
+	
+			loginBtn.addEventListener('click', ()=>{
+				
+				//1. alert 창으로 폼에 입력된 id, pwd 값을 출력
+				alert(idForm.value);
+				alert(pwdForm.value);
+				
+				//2. 로컬스토리지에 "id" "password"를 각각 이름으로 값을 저장.
+				//localStorage.setItem(idForm.value); // id,pass 저장을 한번에 해보자
+				//localStorage.setItem(pwdForm.value); 
+				
+				/* 
+				
+				로컬 스토리지에 저장할때 주의할 점이 있다.
+				로컬 스토리지는 오직 문자형 String 데이터 타입만 지원한다.
+				지금처럼 userInfo로 저장하면 즉, {} 객체 형식으로 저장하게 되면 [Object Object] 인 JSON 형식으로 저장된다.
+				1) 로컬 스토리지에 데이터를 저장할 때는(쓸 때) JSON.stringify(userInfo) 으로 저장하고  -- 직렬화
+				2) 로컬 스토리지에 저장된 데이터를 읽어올 때는(받아올 때) JSON.parse 를 해야한다. (덩어리로 받아온다) -- 역직렬화
+				
+				*/
+				let userInfo = { id : idForm.value, pass : pwdForm.value};
+				localStorage.setItem( "userInfo", JSON.stringify(userInfo));
+				
+				//let result = localStorage.getItem("userInfo");
+				//console.log(result);
+				
+				let result = JSON.parse(localStorage.getItem("userInfo"));
+				console.log("ID ==> " + result.id);
+				console.log("PWS ==> " + result.pass);
+				
+			});
+			
+		</script>
+		
+		
+	</body>
+</html>

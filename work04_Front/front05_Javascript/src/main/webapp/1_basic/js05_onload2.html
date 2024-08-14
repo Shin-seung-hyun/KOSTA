@@ -1,0 +1,48 @@
+<!--  
+
+	1. 복합연산자(a += '')
+	2. innerHTML
+	3. querySelector(), getElementById()
+	
+	
+	window.onload는
+	html의 모든 요소들이 메모리에 올라가고 나서 
+	해당 부분이 (=javascript) 실행되도록 하는 기능이다.
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+		
+			//html 모든 요소들이 메모리에 올라가고 나서 이 부분이 실행되도록..
+			$(document).ready(function(){
+				var list = '';
+				
+				// 1. 복합연산자
+				list += '<ul>';
+				list += '<li>아메리카노</li>';
+				list += '<li>카페라떼</li>';
+				list += '<li>카페모카</li>';
+				list += '<li>카라멜마끼아또</li>';
+				list += '</ul>';
+				
+				//2. document 내에 특정 element를 찾아서 붙인다.
+				//document.getElementById("wrap").innerHTML = list;
+				document.querySelector("#wrap").innerHTML = list;
+			});
+			
+		</script>
+
+	</head>
+	
+	<body>
+		<h2 align="center"> ==================== onload ==================== </h2>
+		<div id="wrap">
+			
+		</div>
+	</body>
+</html>

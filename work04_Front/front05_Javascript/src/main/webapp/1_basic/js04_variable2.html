@@ -1,0 +1,45 @@
+<!-- 
+
+변수의 종류
+	전역변수
+	멤버변수
+	지역변수
+	상수	
+
+javaScript의 변수
+	var
+ -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script type="text/javascript">
+		
+			const name = "Peter";
+			const my_name = "James";
+			
+			console.log(name);	// 요소 검사창에서 확인
+			console.log(my_name);
+			
+			showInfo();
+			function showInfo() {
+				let age = 33;	//지역변수
+				let myAge = 22;		//지역변수
+				console.log("name" + name + ", " +  age);
+				console.log("name" + my_name + ", " +  myAge);
+			}
+			
+			//console.log(age);	// error 발생
+			//console.log(myAge);	// 정상 동작
+			
+		</script>
+	
+	</head>
+		
+	<body>
+		
+	</body>
+</html>

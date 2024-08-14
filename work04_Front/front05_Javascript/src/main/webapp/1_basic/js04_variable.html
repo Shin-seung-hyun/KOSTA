@@ -1,0 +1,44 @@
+<!-- 
+
+변수의 종류
+	전역변수
+	멤버변수
+	지역변수
+	상수	
+
+javaScript의 변수
+	var
+ -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		
+			var name = "Peter";
+			my_name = "James"; // var 생략 : 자동으로 전역변수가 된다.
+			
+			console.log(name);	// 요소 검사창에서 확인
+			console.log(my_name);
+			
+			showInfo();
+			function showInfo() {
+				var age = 33;	//
+				myAge = 22;		//지역변수 X, 전역변수 O
+				//console.log("name" + name + ", " +  age);
+				//console.log("name" + my_name + ", " +  myAge);
+			}
+			
+			console.log(age);	// error 발생
+			console.log(myAge);	// 정상 동작
+			
+		</script>
+	
+	</head>
+		
+	<body>
+		
+	</body>
+</html>
