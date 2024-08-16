@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>영화 예매</title>
+    <style>
+
+        #wrap {
+            width: 800px;
+            height: auto;
+            margin: 0 auto;
+            border: 3px solid deeppink;
+            text-align: center;
+            padding : 40px;
+        }
+        form{
+            text-align: left;
+        }
+        #menu{
+            border : 1px solid gray;
+        }
+
+        form > div{
+            margin-top: 20px;
+        }
+        form #menu{
+            margin-top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div>
+        <h1>★★★★★ 인사이드 아웃2 ★★★★★</h1>
+        <div>
+            <img src="image/inside.jpg" width ="350" height="400">
+        </div>
+        <br>
+        <form id ="form" >
+            <div>
+                <label>상영관
+                <select>
+                    <option>CGV</option>
+                    <option>롯데시네마</option>
+                </select>
+                </label>
+                <label>날짜 선택 <input type ="date"
+                                    min="2024-08-01"
+                                    max= "2024-08-31"></label>
+                <fieldset>
+                    <legend>시간선택</legend>
+                    <label><input type ="radio" name = "time">8:30</label>
+                    <label><input type ="radio" name = "time">11:00</label>
+                    <label><input type ="radio" name = "time">14:20</label>
+                    <label><input type ="radio" name = "time">17:25</label>
+                    <label><input type ="radio" name = "time">20:10</label>
+                    <label><input type ="radio" name = "time">23:05</label>
+                </fieldset>
+            </div>
+            <div>
+                <div><label>요금 <s>￦9,000</s>&nbsp;&nbsp;<u>￦5,000</u></label></div>
+                <br>
+                <div><label>인원 <input type ="text" value =0></label></div>
+                <br>
+                <div><label>금액 <input type ="text" value =0></label></div>
+                <br>
+            </div>
+            <label><input type ="checkbox"> 옵션</label>
+            <div id="menu">
+                <!-- checkbox는 중복 선택이 가능하다.-->
+                <label><input type ="checkbox" name="side">팝콘</label>
+                <label><input type ="checkbox" name="side">콜라</label>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
