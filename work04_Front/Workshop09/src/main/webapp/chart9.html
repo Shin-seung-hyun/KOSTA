@@ -1,0 +1,93 @@
+<!-- 데이타 누적통계 그래프  -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.chart-container{
+				width: 600px;
+				height: 600px;
+				border: 1px solid #ddd;
+				margin: auto;
+				padding:10px;
+				border-radius:4px;
+			}
+		</style>
+		
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+		<script type="text/javascript">
+		
+		$(function() {
+			var ctx = $('#bar-chart');
+			var myChart = new Chart(ctx,{
+				type:'bar',
+				data:{
+					labels:['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
+					datasets:[
+						{
+							label:'2022년 ',
+							data:[100, 98, 108, 101, 111, 116, 120, 119, 98, 88, 99, 100],
+							backgroundColor : "rgba(255,0,0, .3)", 
+							borderWidth:1,
+							borderColor:'crimson'				
+						},
+						
+						/* 1. datasets{ }를 카피해서 하나더 만든다. 2023년도 값만 다르게*/				
+						{
+							label:'2023년',
+							data:[102, 100, 118, 109, 119, 119, 130, 148, 102, 100, 103, 121],
+							backgroundColor: "rgba(0,0,255,0.3)", 
+							borderWidth:5,
+							borderColor:'SlateBlue'
+							
+						}
+					]			
+				},
+						
+				options:{
+					maintainAspectRatio:false,  
+				}	
+			});
+			
+		});//ready 반드시 닫아주자
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron text-center">
+			  <h1>A항공사 년도별 승객수 누적현황 챠트 통계</h1> 	
+			</div>
+			<div class="chart-container">
+				<canvas id="bar-chart"></canvas>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

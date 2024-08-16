@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<!-- Bootstrap CSS CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+	<!--  3D -->
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	
+	<!-- chartJS CDN -->
+	<link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	
+	<style type="text/css">
+		.container {
+			text-align: center;
+		}
+		
+		#myChart {
+			width: 800px;
+			height: 600px;
+			border: 1px solid #ddd;
+			margin: auto;
+			padding: 10px;
+			border-radius: 4px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container ">
+		<div class="jumbotron text-center">
+			<h1>배달앱 시장 점유율 (단위 %)</h1>
+		</div>
+
+		<div id="myChart"></div>
+
+		<script type="text/javascript">
+		
+		 	google.charts.load('current', { 'packages': ['corechart'] });
+         	google.charts.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+
+				const data = google.visualization.arrayToDataTable([
+						[ '배달앱', '%' ], [ '배달의 민족', 2174 ], [ '쿠팡이츠', 732 ],
+						[ '요기요', 595 ], [ '땡겨요', 83 ], [ '배달특급', 40 ] ]);
+
+				// Set Options
+				const options = {
+					title : '2024 배달앱 점유율',
+					is3D : true,
+					slices : {
+						0 : {offset : 0.1,color : '#48d1cc'}, // '배달의 민족' 슬라이스 분리
+						1 : {offset : 0.1,color : '#00FF08'}, // '쿠팡이츠' 분리
+						2 : {color : '#ff1a3a'}, // '요기요' 슬라이스 분리
+						3 : {color : 'orange'}, // '땡겨요' 슬라이스 분리
+						4 : {color : 'grey'}, // '배달특급' 슬라이스 분리
+					},
+
+					/* 0.02 이하는 안보이게  */
+					sliceVisibilityThreshold : 0.02,
+
+					tooltip : {
+						isHtml : true,
+						textStyle : {
+							color : 'black',
+							fontSize : 16
+						}
+					},
+					fontSize : 20,
+
+					// Automatically adjust the height
+					chartArea : {
+						width : '70%',
+						height : '80%'
+					}
+
+				};
+
+				// Draw
+				const chart = new google.visualization.PieChart(document
+						.getElementById("myChart"));
+				chart.draw(data, options);
+
+			}
+		</script>
+
+	</div>
+
+</body>
+</html>

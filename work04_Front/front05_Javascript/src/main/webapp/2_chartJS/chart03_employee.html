@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		.container{
+			text-align: center;
+		}
+		
+		
+		/* 
+			canvar tag는 css가 적용이 안된다.
+			사이즈가 줄어들지 않는다.
+			
+			canvars의 부모 요소를 만들고, 부모에 css를 적용해야 한다.
+		
+		 */
+/* 		.line-chart{
+			width : 200px;
+			height : 200px;
+		}  */
+		
+		.chart-container{
+			width : 500px;
+			height : 500px;
+			margin : 0 auto; 
+			margin-top : 140px;
+			/* background: yellow; */ /* 원래는 javaScript로 배경을 지정한다. */
+		}
+		
+		
+	</style>
+	
+</head>
+<body>
+	<div class ="chart-container"> 
+		<canvas id ="line-chart"></canvas>
+	</div>
+
+	<script type="text/javascript">
+		const ctx = document.querySelector("#line-chart");
+		new Chart(ctx, {
+			type : "bar",
+			data : {
+				labels : [ "SMITH", "FORD", "TURNER", "KING", "ADMAS"],
+				datasets : [
+					
+					{					
+						label : "Employee Salary ",
+						data : [1200, 3000, 2400, 5000, 2600 ],
+						
+						//그래프의 배경색과 선색을 지정
+						backgroundColor : "rgba(255,0,0,0.4)",
+						borderColor : "rgb(200,0,0)"
+					},
+					
+					// 하나의 데이터 묶음을 더 추가
+					{					
+						label : "Employee Bonus ",
+						data : [300, 150, 150, 0, 170 ],
+						
+						//그래프의 배경색과 선색을 지정
+						backgroundColor : "rgba(0,0,255, 0.5)",
+						borderColor : "rgb(0,0,200)"
+					}
+				]
+				
+			},
+			options : {
+				
+				maintainAspectRatio : false, 
+				
+			}	
+			
+		});
+	
+	
+	</script>
+
+</body>
+</html>
