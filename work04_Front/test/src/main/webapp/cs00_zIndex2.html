@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>z-index</title>
+    <style>
+        div {
+            opacity: 0.7;
+            padding: 10px;
+            margin: 10px;
+            width: 500px;
+            border: 1px dashed #696;
+            background-color: #5ae05a;;
+        }
+
+        div > div {
+            width: 90%;
+        }
+
+        #div1 {
+            margin-bottom: 190px;
+        }
+
+        #div3 {
+            opacity: 1;
+            top: 80px;
+            left: 180px;
+            width: 400px;
+            padding-top: 50px;
+            background-color: yellow;
+        }
+
+        #div4, #div5 {
+            background-color: #ff8f00;
+        }
+
+        #div6 {
+            top: 20px;
+            left: 180px;
+            width: 150px;
+            height: 125px;
+            padding-top: 110px;
+            background-color: #e600ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>z-index (Stacking Context)</h1>
+
+    <div id="div1" style="position: relative; z-index: 5;">
+        <strong>#1</strong><br>
+        <code>position: relative;<br/>z-index: 5;</code>
+    </div>
+
+    <div id="div2" style="position: relative; z-index: 2;">
+        <strong>#2</strong><br>
+        <code>position: relative;<br/>z-index: 2;</code>
+    </div>
+
+    <div id="div3" style="position: absolute; z-index: 4;">
+        <div id="div4" style="position: relative; z-index: 6;">
+            <strong>#4</strong><br>
+            <code>position: relative;<br/>z-index: 6;</code>
+        </div>
+
+        <strong>#3</strong><br>
+
+        <code>position: absolute;<br/>z-index: 4;</code>
+        <div id="div5" style="position: relative; z-index: 1;">
+            <strong>#5</strong><br>
+            <code>position: relative;<br/>z-index: 1;</code>
+        </div>
+
+        <div id="div6" style="position: absolute; z-index: 3;">
+            <strong>#6</strong><br>
+            <code>position: absolute;<br/>z-index: 3;</code>
+        </div>
+    </div>
+    <h2>설명:</h2>
+    <ul>
+        <li>#4는 #1 보다 z-index 값이 더 크지만 #1보다 아래에 렌더링.</li>
+        <li>#1의 z-index:5; 는 뿌리 엘리먼트의 쌓임 맥락 안에서 유효하나 #4의 z-index:6; 은 #3의 쌓임 맥락 안에서만 유효하기 때문.</li>
+        <li>#4는 자신이 속하는 #3의 z-index:3; 이므로 #1 아래에 쌓임, 같은 이유로 #2는 #5 아래에 렌더링됨.</li>
+        <li>#5는 #2보다 z-index 값이 작지만, #5가 속한 #3의 z-index 값이 #2의 보다 더 크기 때문</li>
+        <li>#3은 루트 엘리먼트(HTML)에 속해 있어 #4, #5, #6의 z-index 속성값과 독립적임.</li>
+    </ul>
+</body>
+
+</html>
