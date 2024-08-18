@@ -5,11 +5,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<title>Insert title here</title>
 	<style type = "text/css">
-		
+
+		/* float : left 사용 */
 		ul{
 			background: #333;
-			margin: 0px;
-			padding : 0px;
+			margin: 0;
+			padding : 0;
+			border : 3px solid red;
+
+			/*
+			overflow : hidden이 없다면,
+			float 한 요소는 부모 요소의 높이에 영향을 미치지 않는다. (집나간 자식)
+			따라서 부모 요소의 높이가 0이 돼 자식 요소들이 화면에 보이지 않는다.
+			*/
 			overflow: hidden;
 		}
 		li{
@@ -26,7 +34,7 @@
 		li>a:hover{
 			background-color: #111;
 		}
-	
+
 	</style>
 </head>
 <body>
