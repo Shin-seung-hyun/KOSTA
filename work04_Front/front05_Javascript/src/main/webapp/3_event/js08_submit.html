@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script type="text/javascript">
+			function send(){
+			
+				/* 	
+					폼에 입력된값을 js에서 핸들링한 다음 서버로(index.jsp) 전송
+					validation checking :: userID 입력 폼에 공백을 제거한 후 서버로 전송하자
+					
+					!!선택자가 중요
+					form.submit()
+				*/
+			
+				let id = document.querySelector("#userId"); //id입력하는 폼
+				
+				if( id.value.trim() != ""){ //id 값이 입력됐다면 index.jsp로 전송한다.
+					
+					/* 
+						confirm 은 확인과 취소 버튼이 있다.
+						확인을 누르면 true, 취소를 누르면 false가 반환된다.
+					
+					*/
+					let flag = confirm(id.value + "님의 정보를 서버로 정말 전송할까요?? ");
+				
+					if(flag) document.querySelector("#memberFrm").submit();
+					else event.preventDefault(); // 기본적인 이벤트(=action에 걸린 페이지로 전송하는 achor태그)를 막는 함수
+				}
+				else{
+					//submit의 기본적인 이벤트를 막아준다. index.jsp로 안간다.ㄴ
+					event.preventDefault();
+				}
+				
+			}
+		
+		</script>
+	</head>
+	<body>
+		<h2>Form에서 입력된 값을 자바스크립트에서 받아서 서버로 전송하기.</h2>
+		
+		<form action="index.jsp" method="get" id="memberFrm">
+			아이디 :  <input type="text" name="userId" id="userId"><br/><br/>
+			이 름 :  <input type="text"  name="userName" id="userName"><br/><br/>
+			이메일 :  <input type="email"  name="userEmail" id="userEmail"><br/><br/>
+			<input type="submit" value="DataSend" onclick="send()">
+		</form>
+		
+	</body>
+	
+</html>
