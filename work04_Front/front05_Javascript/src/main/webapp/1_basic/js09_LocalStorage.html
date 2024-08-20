@@ -10,21 +10,19 @@
 			<input type ="text" id ="id">
 			<input type ="password" id ="pwd">	
 			<button id = "login-btn">LOGIN</button>
-			
 		</div>
 		
 		<script>
 		
-			/* idForm, pwdForm 은 값이 아니라 폼 객체이다.  */
+			//idForm, pwdForm 은 값이 아니라 폼 객체이다.
 			const idForm = document.getElementById("id");
 			const pwdForm = document.querySelector("#pwd");
 			const loginBtn = document.querySelector("#login-btn");
 			
-			/* 버튼을 클릭하면(onclick 솔성을 사용 안하는 방식) idForm, pwdForm 에 입력된 값을 받아서 콘솔/alert 창 출력 */
-/* 			loginBtn.addEventListener('click', function() {
-				//버튼 클릭시 처리하고자 하는 코드를 작성
-			}); */
-	
+			/* 	버튼을 클릭하면(onclick 속성을 사용 안하는 방식) 
+				idForm, pwdForm 에 입력된 값을 받아서 콘솔/alert 창 출력 */
+				
+ 			//loginBtn.addEventListener('click', function() {
 			loginBtn.addEventListener('click', ()=>{
 				
 				//1. alert 창으로 폼에 입력된 id, pwd 값을 출력
@@ -53,7 +51,6 @@
 				let result = JSON.parse(localStorage.getItem("userInfo"));
 				console.log("ID ==> " + result.id);
 				console.log("PWS ==> " + result.pass);
-				
 			});
 			
 		</script>

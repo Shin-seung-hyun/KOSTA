@@ -21,19 +21,20 @@ javaScript의 변수
 			const name = "Peter";
 			const my_name = "James";
 			
-			console.log(name);	// 요소 검사창에서 확인
+			console.log(name);
 			console.log(my_name);
 			
 			showInfo();
 			function showInfo() {
-				let age = 33;	//지역변수
+				let age = 33;		//지역변수
 				let myAge = 22;		//지역변수
-				console.log("name" + name + ", " +  age);
-				console.log("name" + my_name + ", " +  myAge);
+				
+				console.log(name + ", " +  age);
+				console.log(my_name + ", " +  myAge);
 			}
 			
-			//console.log(age);	// error 발생
-			//console.log(myAge);	// 정상 동작
+			console.log(age);	// error 발생
+			console.log(myAge);	// error 발생
 			
 		</script>
 	
