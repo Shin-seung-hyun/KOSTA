@@ -5,6 +5,7 @@
 	<title>Insert title here</title>
 	
 	<script type="text/javascript">
+	
 		console.log("==== 1. map :: for문과의 차이점을 정확하게 정리 ====");
 		const a = [1,2,3];
 		
@@ -21,11 +22,18 @@
 		});
 		
 		console.log("=== 3. forEach vs map ===");
-		const b = a.forEach((i) =>{ console.log(i); }); //for는 반환값이 없다 (소모되고 끝난다)
-		console.log("b = " + b); // b= undefind;
 		
-		const c = a.map((i) => { return i+100; });
-		console.log("c = " + c); //c = 101, 102, 103
+		/* for, forEach 방식 순회  */
+		const b = a.forEach((i) =>{ console.log(i); }); //for는 반환값이 없다 (소모되고 끝난다)
+		console.log("b = " + b); // 반환값 없음 -> b = undefined
+		
+		const b2 = a.forEach((i) =>{ return i+100; }); //for는 반환값이 없다 (소모되고 끝난다)
+		console.log("b2 = " + b2);  // 반환값 없음 -> b2 = undefined
+		
+		
+		/* Map 방식 순회 */
+		const c = a.map((i) => { return i+100; }); // 새로운 배열 반환 -> c = [101, 102, 103]
+		console.log("c = " + c); 
 		
 		c.push(4);
 		console.log("a = " + a);  
