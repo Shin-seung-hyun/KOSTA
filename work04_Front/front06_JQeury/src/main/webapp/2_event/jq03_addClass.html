@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery코드와 CSS 코드를 분리시키자</title>
+	
+	<!-- JQuery는 라이브러리가 필요하다 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+	<style>
+		.colorY{color : yellow}
+		.colorB{color : blue}
+		.backgroundG{ background : gray}
+		.colorR{ color : red}
+	
+	</style>
+	
+	<script type="text/javascript">
+	
+		//jq01_selector.html 파일 리팩토링
+		$(()=>{
+
+			/* 페이지가 로드되기 전에 실행  */
+			//$("#header > span").html("JQuery Select Test ").css("color","crimson");
+			$("#header > span").html("JQuery Select Test ").addClass("colorY");
+			
+			
+			$("button").click(function(){
+
+				//$("p, h2").css("color","blue");
+				$("p, h2").addClass("colorB");
+				
+				//$("h2 > span").css("background", "gray");
+				$("h2 > span").addClass("backgroundG");
+				
+				//$("p:eq(0)").html("첫번째 문장입니다.").css('color','red');
+				$("p:eq(0)").html("첫번째 문장입니다.").addClass("colorR");
+				
+			});
+		
+		});
+		
+	</script>
+
+</head>
+<body>
+	<h2 id="header">	
+		<span>This is a heading</span>
+	</h2>	
+	<p>This is a paragraph.</p>
+	<p class="content">This is another paragraph1.</p>
+	<p class="content theme">This is another paragraph2.</p>	
+	
+	<button>Click me to hide paragraphs</button>
+</body>
+</html>

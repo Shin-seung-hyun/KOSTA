@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	
+	
+		console.log("=== 1. filter :: true에 해당하는 값만 걸러줌 :: 삭제로직에서 사용된다 ===")
+		const a = [1,2,3];
+		const b = a.filter((n)=>{
+			return n!=1;
+		});
+		
+		console.log("b = " + b); // 2,3
+		
+		
+		console.log("=== 2. slice :: 조건에 부여된 만큼 잘라내는 함수 ===")
+		const c = [1,2,3];
+		const d = c.slice(0,2);
+		const d2 = [c.slice(0,2)]; // 이렇게도 쓰임
+		
+		console.log("d = " + d); // 1,2
+		console.log("d2 = ", d2);
+		
+		
+		
+		
+	</script>
+	
+</head>
+<body>
+
+</body>
+</html>

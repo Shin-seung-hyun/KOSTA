@@ -1,0 +1,55 @@
+
+<!--  
+ 자바스크립트에서는 기존의 데이터를 복사해올 때가 있다.
+ 깊은 복사: 실제값을 복사하는 경우,
+ 얕은 복사 : 참조값(=주소값)을 복사하는 경우로 나뉜다.
+
+-->
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script type="text/javascript">
+		
+			console.log("======== 1. 스프레드 연산자 :: pass by value :: 깊은 복사 =======");							  
+			const a =[1,2,3];
+			const b = [...a]; /* ...은 스프레드 연산자이다.
+							   	 a의 데이터를 흩뿌려서 b에 넣는다. (= 값 복사)
+							   	 pass by value : a의 값을 b에 넣고 새로운 객체를 생성한다.
+							     => 깊은 복사
+							  */ 
+			b.push(4);
+			
+			console.log(`a의 값은 ${a}`); //1,2,3
+			console.log(`b의 값은 ${b}`); //1,2,3,4
+			
+			
+			console.log("======== 2. 객체 할당 :: pass by reference :: 얕은 복사 =======")
+			const c = [1,2,3];
+			const d = c;
+			
+			d.push(4);
+			
+			console.log(`c의 값은 ${c}`); //1,2,3,4
+			console.log(`d의 값은 ${d}`); //1,2,3,4
+			
+			
+			console.log("======== 3. concat :: pass by value :: 깊은 복사 =======")
+			const e = [1,2,3];
+			const f = e.concat(4);
+			
+			f.push(5);
+			
+			console.log(`e의 값은 ${e}`); //1,2,3
+			console.log(`f의 값은 ${f}`); //1,2,3,4,5
+			
+			
+		</script>
+		
+	</head>
+	<body>
+	
+	</body>
+</html>

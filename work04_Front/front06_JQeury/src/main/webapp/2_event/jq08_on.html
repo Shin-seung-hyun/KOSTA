@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>on 함수의 사용법..</title>
+	<style>
+	
+		#future{
+			border : 1px solid gray;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+	<script>
+		$(function(){  
+			
+			/* 1. 기존에 존해했던 부분 (단순 클릭)*/
+			//present를 클릭하면 함수 호출
+			$("#present").click(()=>{
+				//future 부분에 kosta fullstack 개발자 양성과정을 appending h2크기로
+				
+				$("#future").append("<h2 id= hello>kosta fullstack 개발자 양성과정</h2>");
+			}); //end click
+			
+			
+			/* 2. 미래에, 나중에 추가되어진 부분을 클릭 (on함수 사용) */
+			$("#future").on("click", "#hello", hello);
+			
+		});
+		
+		function hello(){
+			alert("on 함수 사용법!");
+		}
+	</script>
+	
+</head>
+<body>
+	<div id = "present">
+		<h1>Syntax :: $("selector").on("click", "#hello", hello)</h1>
+		<p> on()함수는 미래에 만들어질 태그를 클릭한다면 반드시 on()함수를 사용해야 한다.</p>
+		<p>id 값이 hello인 부분을 클릭하면 hello()함수가 호출돼진다.</p>
+	</div>
+	<div id = "future">
+		
+	</div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

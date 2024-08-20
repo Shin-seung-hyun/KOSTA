@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		
+	$(function() {
+		
+		//addOptionBtn을 누르면 함수 호출되도록
+		
+		// 버튼을 누를수록 옵션이 많이 생김
+/* 		$("#addOptionBtn").click(()=>{
+			let arr = ['이찬영','백도현','김믿음','박혜린'];
+			
+			//arr의 요소값들을 select form > <option>의 값으로 붙이기
+			
+			let str = "";
+			$.each(arr, function(index, item){
+				$("#friend").append("<option value =" + item + ">" + item + "</option>");
+				
+			});
+			
+		}); */
+		
+		
+		//on은 bind와 같다
+/* 		$("#addOptionBtn").on("click",()=>{
+			
+			let arr = ['이찬영','백도현','김믿음','박혜린'];
+			
+			let str = "";
+			$.each(arr, function(index, item){
+				$("#friend").append("<option value =" + item + ">" + item + "</option>");
+				
+			});
+			
+			$("#addOptionBtn").unbind();
+			
+		}); */
+		
+		
+		//unbind를 삭제해보자
+		$("#addOptionBtn").one("click",()=>{
+			
+			let arr = ['이찬영','백도현','김믿음','박혜린'];
+			
+			let str = "";
+			$.each(arr, function(index, item){
+				$("#friend").append("<option value =" + item + ">" + item + "</option>");
+				
+			});
+			
+		});
+		
+		
+		//deleteOptionBtn을 누르면 함수 호출되도록
+		$("#deleteOptionBtn").click(()=>{
+			
+			//select 태그의 직계 자식 태그 <option>을 삭제한다.
+			$("#friend>option").remove();
+			
+		});
+		
+	});//ready
+		
+		
+	</script>
+</head>
+<body>
+	<input type="button" value="옵션 생성" id="addOptionBtn">
+	<input type="button" value="옵션 삭제" id="deleteOptionBtn">
+	<select id="friend">	
+	</select>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

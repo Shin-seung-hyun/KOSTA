@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>concat보다 spread를 쓰는 이유</title>
+	
+	<script type="text/javascript">
+		const a = [1,2,3];
+		
+		/* spread는 앞,뒤,중간에 값을 추가할 수 있다. */
+		const b = [10,...a,100];
+		console.log("a= " + a);
+		console.log("b= " + b);
+		
+		
+		/* concat은 뒤에만 값을 추가한다. */
+		const b2 = a.concat(100);	
+		console.log("b2= " + b2);
+		
+		
+		console.log("=== 1. spread 연산자 응용 :: slice ===");
+		const result = [10, a.slice(0,2), 7, 8, a.slice(-1), 100 ];
+		const result2 = [10, ...a.slice(0,2), 7, 8, ...a.slice(2,3), 100 ];
+		
+		console.log("result = " + result);
+		console.log("reuslt2 = " + result2);
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>

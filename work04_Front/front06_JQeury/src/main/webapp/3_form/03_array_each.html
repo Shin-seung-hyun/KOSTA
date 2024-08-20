@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script>
+	$(function() {
+		$("#eachBtn").click(()=>{
+			
+			let arr =['AAA','BBB'];
+			arr.push("CCC");
+			arr.push("DDD");
+			arr.push("EEE");
+			
+			let str ="";
+			
+			//index와 item의 순서가 바뀌면 안됨
+			$.each(arr, function(index, item){
+				
+				str += index + ": " + item + " ";
+			});
+			
+			alert(str);
+		});
+		
+		
+	});//ready
+	
+	
+	</script>
+	
+	
+</head>
+<body>
+	<input type="button" value="배열에 each() 적용" id="eachBtn">	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

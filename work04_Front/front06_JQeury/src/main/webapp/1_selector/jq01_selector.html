@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery Selector...</title>
+	
+	<!-- JQuery는 라이브러리가 필요하다 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+	
+/* 		jQeury(document).ready(function(){
+			alert("ready!");
+		});
+*/
+
+/* 		$(document).ready(function(){
+			alert("ready!");
+		}); 
+*/
+		
+/* 		$(function(){
+			alert("ready!");
+		});
+*/
+		
+		$(()=>{
+			//1. id값이 header이 태그의 직계 자식 태그인 <span>을 선택자로 지정
+			$("#header > span").html("JQuery Select Test ").css("color","crimson");
+			
+			//2. 버튼을 클릭하면 함수를 호출하도록
+			$("button").click(function(){
+				
+				//3. p,h2 태그 모두 글자색 green
+				$("p, h2").css("color","blue");
+				
+				//4. h2의 직계자식 span 영역 배경을 gray로
+				$("h2 > span").css("background", "gray");
+				
+				//5. 첫번째 p태그를 택자로 지정
+				//$("p").first().html("첫번째 문장입니다.").css('color','red');
+				$("p:first").html("첫번째 문장입니다.").css('color','red');
+				//$("p:eq(0)").html("첫번째 문장입니다.").css('color','red');
+				
+				$("p").last().html("마지막 문장입니다.").css('color','red');
+				
+				//6. 버튼을 더이상 보이지 않게..
+				$("button").css("display","none");
+				
+				$("p, h2").css("text-align","center");
+				
+				//7. 클래스 속성의 값이 theme인 선택자를 지정, 경계선을 지정
+				$(".theme").css("border","2px solid black");
+			
+			});
+		
+		});
+		
+	</script>
+
+</head>
+<body>
+	<h2 id="header">	
+		<span>This is a heading</span>
+	</h2>	
+	<p>This is a paragraph.</p>
+	<p class="content">This is another paragraph1.</p>
+	<p class="content theme">This is another paragraph2.</p>	
+	
+	<button>Click me to hide paragraphs</button>
+</body>
+</html>

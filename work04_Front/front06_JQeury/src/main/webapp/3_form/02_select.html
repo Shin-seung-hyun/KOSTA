@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(function() {
+		
+		// 버튼을 클릭하면 함수가 호출되도록
+		$("#createBtn").on("click", function(){
+			
+			//1. 버튼의 타이틀을 받아와서 #reulstView 영역에 출력
+			let title = $(this).val();
+			
+			/* 방법1 */
+			$("#resultView").html(title);
+			
+			/* 방법2 */
+			//$("#resultView").append("<p>" + title + "</p>");
+		
+			/* 방법3 html() 함수를 사용하는데 append() 썼을 때와 동일한 결과가 나오게 */
+			//$("#resultView").html(title + "<p>"); // 내가 생각한 방법인데.. 이상한듯..
+			
+			let result = $("#resultView").html();
+			$("#resultView").html(result + title+"<p>");
+			
+		});
+		
+		//select form 에서 option 값을 변경할 때마다 이벤트를 호출
+			// 선택한 서비스 지점이 resultView에 출력되도로 html()함수를 사용
+			
+			// 수정 요망...
+		$("#createSel").on("change", ()=>{
+			
+			let result = $(this).val();
+			let reulst2 = $("#createSel").val();
+			$("#resultView").html(result2);
+		});
+	
+	
+	});
+	</script>
+</head>
+<body>
+	<input type="button" value="버튼 클릭시 동적으로 문자열 생성" id="createBtn">
+	<select id="createSel">
+		<option>삼성전자 서비스 선릉지점</option>
+		<option>삼성전자 서비스 강남지점</option>
+		<option>삼성전자 서비스 어린이 대공원 단지점</option>
+		<option>삼성전자 서비스 강북지점</option>
+		<option>삼성전자 서비스 신촌지점</option>
+	</select>
+	
+	<div id="resultView"></div>
+</body>
+</html>
+
+

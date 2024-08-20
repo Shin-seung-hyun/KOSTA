@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery Selector...</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+
+		$(()=>{
+			$("#header > span").html("JQuery Select Test ").css("color","crimson");
+			
+			$("button").click(function(){
+				
+				$("p, h2").css("color","blue");
+				
+				$("h2 > span").css("background", "gray");	
+				
+				/* 
+				html()은 JS에서 innnerHTML과 동일한 기능이다.
+				val()은 JS에서 value와 동일한 기능이다.
+					form 값을 핸들링할 때만 val()을 사용해야 한다.
+					
+					innerHTML은 text(),html() 두개가 있다.
+				
+				*/
+				
+				//$("p:eq(0)").val("첫번째 문장입니다.").css('color','red'); // 적용 안됨
+				$("p:eq(0)").text("첫번째 문장입니다.").css('color','green');
+				//$("p:eq(0)").html("첫번째 문장입니다.").css('color','red');
+				
+				//$("p").last().html("마지막 문장입니다.").css('color','red');
+				$("p").last().html("<h2>마지막 문장입니다.</h2>").css('color','red');
+				
+				$("button").css("display","none");
+				
+				$("p, h2").css("text-align","center");
+				
+				$(".theme").css("border","2px solid black");
+			
+			});
+		
+		});
+		
+	</script>
+
+</head>
+<body>
+	<h2 id="header">	
+		<span>This is a heading</span>
+	</h2>	
+	<p>This is a paragraph.</p>
+	<p class="content">This is another paragraph1.</p>
+	<p class="content theme">This is another paragraph2.</p>	
+	
+	<button>Click me to hide paragraphs</button>
+</body>
+</html>

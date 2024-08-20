@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<style>
+		.star{border:2px solid black; width:200px; height:250px;}
+	</style>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+	<script>
+		$(function(){  
+			
+			//1. 이미지에 사이즈를 주기
+			$("img").addClass("star");
+			
+			//2. 뒤로 보내기
+			//$("body").append( $("img:eq(0)"));
+			
+			//3. 특정한 간겨으로 움직이기
+/* 			setInterval(() => {
+				$("body").append( $("img:eq(0)"));
+			}, 2000); 
+*/
+
+
+			//append는 태그에 내용물을 부착하는 것이다.
+			//$("body").append( $("img:eq(0)"));
+			
+			//appendTo 는 내용물에 태그를 부착
+			$("img:eq(0)").appendTo("body");
+			
+		});
+		
+	</script>
+	
+	
+</head>
+<body>
+	<img src='../image/1.jpg'>
+	<img src='../image/2.jpg'>
+	<img src='../image/3.jpg'>
+	<img src='../image/4.jpg'>
+	<img src='../image/5.jpg'>
+	<img src='../image/6.jpg'>
+</body>
+</html>
+
+
+
