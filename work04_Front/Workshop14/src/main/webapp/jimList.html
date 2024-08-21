@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KOSTA DVD</title>
+<link rel="stylesheet" type="text/css" href="css/basic.css"/>
+<style type="text/css">
+	.poster{
+		width : 150px;
+		height : 150px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			
+			// 선언적 함수 정의는 미리 메모리에 존지하기에 가능 
+			refreshPage();
+			
+			//삭제 버튼 클릭하면 함수 호출
+			//이미 존재하는 존재인 $("#content")로 접근해야 한다.
+			//$("#content").on()
+			$("#content").on("click", "#deleteCart", deleteCartStorage);
+		
+		}); //ready
+		
+		function deleteCartStorage(){
+			
+			//this는 버튼
+			let flag = confirm($(this).val() + "번 상품을 정말 삭제하시겠습니까?");
+				
+			if(flag){
+				localStorage.removeItem($(this).val());
+				refreshPage(); // 로컬 스토리지에서 상품 삭제한 후, 페이지 refresh
+			}
+		}
+		
+		function refreshPage(){
+			
+			var totalPrice = 0;
+			var html = "";
+			for(let key in localStorage){
+				//alert(key);
+				
+				if(key =='length')break;
+				
+				//let value = localStorage.getItem(key);
+				//alert(value); //빅벅,img/BigBuck.jpg,5000
+				
+				let data = localStorage.getItem(key).split(","); // 배열 반환
+				//alert(data.length);
+				
+				/* tbody에 localstorage 값을 넣는다 */
+				html += "<tr>";
+				html += "<td><img class=poster src=" + data[1]+"></td>";
+				html += "<td>" + key + "</td>";
+				html += "<td>"+ data[0] + "</td>";
+				html += "<td>"+  data[2]+ "</td>";
+				html += "<td><button id =deleteCart value=" + key + ">삭제</button></td>"
+				html += "</tr>";
+				
+				totalPrice += parseInt(data[2]);
+				
+			} // end for
+			
+			$("#content").html(html);
+			$("#price").html( "총 주문 가격 : " + totalPrice + "원");
+		}
+
+		
+	</script>
+</head>
+<body>
+	<article class="main">
+		<section>
+			<table width="80%"  align="center"  >
+			<caption class="caption">찜 리스트</caption>
+			<thead>
+				<tr><th>이미지</th><th>상품번호</th><th>상품이름</th><th>가격</th><th>삭제</th></tr>
+			</thead>
+			<tbody id="content"></tbody>
+			</table>
+		</section>
+		
+		<section  class="toalprice" id="price">
+			
+		</section>
+		
+		<section class="link">
+			<table   align="center">
+			<tr><td align="center">
+				<a href="">주문하러 가기</a> 
+				<a href="index.html">DVD 목록</a> 
+			</td></tr>
+			</table>
+		</section>
+	</article>
+</body>
+</html>
