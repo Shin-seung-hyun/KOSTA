@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>Insert title here</title>
+
+		<style>
+			*{
+				margin : 0;
+				padding: 0 ;
+				box-sizing: border-box;
+			}
+
+			header, footer{
+				display: flex;
+				justify-content: space-between; /* 양쪽 끝으로 요소를 배치 */
+				background: lightblue;
+			}
+			header .headerLink{
+				display: flex;
+				gap : 30px; /* flexbox 요소들 링크들 사이 간격 추가*/
+				margin-top: 20px;
+			}
+			main{
+				padding: 0 50px;
+				
+			}
+			#mainImg{
+				width: 60%;
+				height : 50%;
+			}
+
+
+		</style>
+
+		<script>
+
+		</script>
+	</head>
+	<body>
+	
+		<header>
+			<img src ="../image/logo.png" id ="logo" width ="30px" height = "30px">
+			<div class ="headerLink">
+				<a href ="">Home</a>
+				<a href ="">MyPage</a>
+			</div>
+		</header>
+		<main>
+			<h2>제주도 메르블루 게스트 하우스</h2> <!-- 추후 동적으로 수정 -->
+			<img id ="mainImg" src ="../image/guesthouse1.png">
+		</main>
+		<footer>
+			<img src ="../image/logo.png" id ="logo" width ="30px" height = "30px">
+		</footer>
+	
+	
+	</body>
+</html>

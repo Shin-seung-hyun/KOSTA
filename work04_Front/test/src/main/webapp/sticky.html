@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style type="text/css">
+header {
+	position: sticky;
+	padding-top: 32px;
+	top: -32px;
+	background: deeppink;
+	color: white;
+	padding-left: 32px;
+	padding-right: 32px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+main {
+	padding: 32px;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+</style>
+
+
+</head>
+<body>
+	<div>
+		<header>
+			<h1>로고</h1>
+			<nav>
+				<ul>
+					<li>메뉴1</li>
+					<li>메뉴2</li>
+					<li>메뉴3</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h1>position: sticky</h1>
+			<p>
+				이용할 수 있는
+				<code>position: sticky</code>
+				라고 불리우는 또 다른 위치잡기 값이 있습니다. 이것은 다른 위치잡기보다 다소 새로운 것입니다. 이것은 기본적으로 상대
+				위치잡기와 고정 위치잡기가 혼합된 하이브리드로서, 위치잡기 요소가 특정 임계점에(예로 뷰포트의 상단으로부터 10px)
+				스크롤될 때까지 상대 위치잡기처럼 행동할 수 있다가 그 뒤에 위치가 고정됩니다. 예를 들어, 탐색 막대가 특정 지점까지
+				페이지와 함께 스크롤한 다음 페이지 상단에 흡착되도록 사용할 수 있습니다.
+			</p>
+			<pre>
+		  .positioned {
+		    position: sticky;
+		    top: 30px;
+		    left: 30px;
+		  }  
+		</pre>
+			<p>
+				<code>position: sticky</code>
+				의 일반적 사용례기도 하고 흥미로운 사용례는 스크롤링하다 제목에 도달하면 서로 다른 제목이 페이지의 맨 위에 흡착되는 색인
+				페이지를 만드는 것입니다. 이런 사례에 대한 마크업은 다음과 같은 모습일 수 있습니다:
+			</p>
+			<p>Lorem Ipsum is simply dummy text of the printing and
+			typesetting industry. Lorem Ipsum has been the industry's standard
+			dummy text ever since the 1500s, when an unknown printer took a
+			galley of type and scrambled it to make a type specimen book. It has
+			survived not only five centuries, but also the leap into electronic
+			typesetting, remaining essentially unchanged. It was popularised in
+			the 1960s with the release of Letraset sheets containing Lorem Ipsum
+			passages, and more recently with desktop publishing software like
+			Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+		</main>
+
+	</div>
+	<div>
+		<p>Contrary to popular belief, Lorem Ipsum is not simply random
+			text. It has roots in a piece of classical Latin literature from 45
+			BC, making it over 2000 years old. Richard McClintock, a Latin
+			professor at Hampden-Sydney College in Virginia, looked up one of the
+			more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+			and going through the cites of the word in classical literature,
+			discovered the undoubtable source. Lorem Ipsum comes from sections
+			1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
+			of Good and Evil) by Cicero, written in 45 BC. This book is a
+			treatise on the theory of ethics, very popular during the
+			Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+			amet..", comes from a line in section 1.10.32.</p>
+		<p>There are many variations of passages of Lorem Ipsum available,
+			but the majority have suffered alteration in some form, by injected
+			humour, or randomised words which don't look even slightly
+			believable. If you are going to use a passage of Lorem Ipsum, you
+			need to be sure there isn't anything embarrassing hidden in the
+			middle of text. All the Lorem Ipsum generators on the Internet tend
+			to repeat predefined chunks as necessary, making this the first true
+			generator on the Internet. It uses a dictionary of over 200 Latin
+			words, combined with a handful of model sentence structures, to
+			generate Lorem Ipsum which looks reasonable. The generated Lorem
+			Ipsum is therefore always free from repetition, injected humour, or
+			non-characteristic words etc.</p>
+		<p>It is a long established fact that a reader will be distracted
+			by the readable content of a page when looking at its layout. The
+			point of using Lorem Ipsum is that it has a more-or-less normal
+			distribution of letters, as opposed to using 'Content here, content
+			here', making it look like readable English. Many desktop publishing
+			packages and web page editors now use Lorem Ipsum as their default
+			model text, and a search for 'lorem ipsum' will uncover many web
+			sites still in their infancy. Various versions have evolved over the
+			years, sometimes by accident, sometimes on purpose (injected humour
+			and the like).There are many variations of passages of Lorem Ipsum
+			available, but the majority have suffered alteration in some form, by
+			injected humour, or randomised words which don't look even slightly
+			believable. If you are going to use a passage of Lorem Ipsum, you
+			need to be sure there isn't anything embarrassing hidden in the
+			middle of text. All the Lorem Ipsum generators on the Internet tend
+			to repeat predefined chunks as necessary, making this the first true
+			generator on the Internet. It uses a dictionary of over 200 Latin
+			words, combined with a handful of model sentence structures, to
+			generate Lorem Ipsum which looks reasonable. The generated Lorem
+			Ipsum is therefore always free from repetition, injected humour, or
+			non-characteristic words etc.</p>
+		<p>It is a long established fact that a reader will be distracted
+			by the readable content of a page when looking at its layout. The
+			point of using Lorem Ipsum is that it has a more-or-less normal
+			distribution of letters, as opposed to using 'Content here, content
+			here', making it look like readable English. Many desktop publishing
+			packages and web page editors now use Lorem Ipsum as their default
+			model text, and a search for 'lorem ipsum' will uncover many web
+			sites still in their infancy. Various versions have evolved over the
+			years, sometimes by accident, sometimes on purpose (injected humour
+			and the like).There are many variations of passages of Lorem Ipsum
+			available, but the majority have suffered alteration in some form, by
+			injected humour, or randomised words which don't look even slightly
+			believable. If you are going to use a passage of Lorem Ipsum, you
+			need to be sure there isn't anything embarrassing hidden in the
+			middle of text. All the Lorem Ipsum generators on the Internet tend
+			to repeat predefined chunks as necessary, making this the first true
+			generator on the Internet. It uses a dictionary of over 200 Latin
+			words, combined with a handful of model sentence structures, to
+			generate Lorem Ipsum which looks reasonable. The generated Lorem
+			Ipsum is therefore always free from repetition, injected humour, or
+			non-characteristic words etc.</p>
+		<p>It is a long established fact that a reader will be distracted
+			by the readable content of a page when looking at its layout. The
+			point of using Lorem Ipsum is that it has a more-or-less normal
+			distribution of letters, as opposed to using 'Content here, content
+			here', making it look like readable English. Many desktop publishing
+			packages and web page editors now use Lorem Ipsum as their default
+			model text, and a search for 'lorem ipsum' will uncover many web
+			sites still in their infancy. Various versions have evolved over the
+			years, sometimes by accident, sometimes on purpose (injected humour
+			and the like).There are many variations of passages of Lorem Ipsum
+			available, but the majority have suffered alteration in some form, by
+			injected humour, or randomised words which don't look even slightly
+			believable. If you are going to use a passage of Lorem Ipsum, you
+			need to be sure there isn't anything embarrassing hidden in the
+			middle of text. All the Lorem Ipsum generators on the Internet tend
+			to repeat predefined chunks as necessary, making this the first true
+			generator on the Internet. It uses a dictionary of over 200 Latin
+			words, combined with a handful of model sentence structures, to
+			generate Lorem Ipsum which looks reasonable. The generated Lorem
+			Ipsum is therefore always free from repetition, injected humour, or
+			non-characteristic words etc.</p>
+		<p>It is a long established fact that a reader will be distracted
+			by the readable content of a page when looking at its layout. The
+			point of using Lorem Ipsum is that it has a more-or-less normal
+			distribution of letters, as opposed to using 'Content here, content
+			here', making it look like readable English. Many desktop publishing
+			packages and web page editors now use Lorem Ipsum as their default
+			model text, and a search for 'lorem ipsum' will uncover many web
+			sites still in their infancy. Various versions have evolved over the
+			years, sometimes by accident, sometimes on purpose (injected humour
+			and the like).There are many variations of passages of Lorem Ipsum
+			available, but the majority have suffered alteration in some form, by
+			injected humour, or randomised words which don't look even slightly
+			believable. If you are going to use a passage of Lorem Ipsum, you
+			need to be sure there isn't anything embarrassing hidden in the
+			middle of text. All the Lorem Ipsum generators on the Internet tend
+			to repeat predefined chunks as necessary, making this the first true
+			generator on the Internet. It uses a dictionary of over 200 Latin
+			words, combined with a handful of model sentence structures, to
+			generate Lorem Ipsum which looks reasonable. The generated Lorem
+			Ipsum is therefore always free from repetition, injected humour, or
+			non-characteristic words etc.</p>
+		<p>It is a long established fact that a reader will be distracted
+			by the readable content of a page when looking at its layout. The
+			point of using Lorem Ipsum is that it has a more-or-less normal
+			distribution of letters, as opposed to using 'Content here, content
+			here', making it look like readable English. Many desktop publishing
+			packages and web page editors now use Lorem Ipsum as their default
+			model text, and a search for 'lorem ipsum' will uncover many web
+			sites still in their infancy. Various versions have evolved over the
+			years, sometimes by accident, sometimes on purpose (injected humour
+			and the like).There are many variations of passages of Lorem Ipsum
+			available, but the majority have suffered alteration in some form, by
+			injected humour, or randomised words which don't look even slightly
+			believable. If you are going to use a passage of Lorem Ipsum, you
+			need to be sure there isn't anything embarrassing hidden in the
+			middle of text. All the Lorem Ipsum generators on the Internet tend
+			to repeat predefined chunks as necessary, making this the first true
+			generator on the Internet. It uses a dictionary of over 200 Latin
+			words, combined with a handful of model sentence structures, to
+			generate Lorem Ipsum which looks reasonable. The generated Lorem
+			Ipsum is therefore always free from repetition, injected humour, or
+			non-characteristic words etc.</p>
+	</div>
+
+</body>
+</html>
