@@ -1,59 +1,564 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="EUC-KR">
-		<title>Insert title here</title>
+<head>
+<meta charset="utf-8">
 
-		<style>
-			*{
-				margin : 0;
-				padding: 0 ;
-				box-sizing: border-box;
+
+<link rel="stylesheet" href="https://webfontworld.github.io/daegu/DalseoHealing.css">
+
+
+<!-- slick CSS - cdn -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<!-- slick css-theme cdn  -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<!-- Bootstrap cdn -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<!-- JQuery cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- slick JS - cdn -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- ChartJS CSS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<title>이디오랜_상세페이지(예약)</title>
+
+<style>
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* 전체 레이아웃 기본 스타일 */
+body {
+	font-family : 'DalseoHealing' !important;
+}
+
+
+/* header */ 
+header {
+	display: flex;
+	align-items: center; /* 세로 가운데 정렬 */
+	justify-content: space-between; /* 좌우 끝 정렬 */
+	border-bottom: 3px solid gray;
+	padding: 0 70px; /* 좌우 패딩 추가 */
+	height: 70px;
+	background-color: #f8f8f8; /* 배경색 */
+}
+
+header .headerLink {
+	display: flex;
+	align-items: center; /* 세로 가운데 정렬 */
+	gap: 30px;	/* 링크 간 간격  */
+}
+
+header h1{
+	font-size: 30px;
+}
+
+header h3 {
+	color: black;
+	margin: 0; /* 제목 요소의 기본 마진 제거 */
+}
+
+header a {
+	color: black;
+	text-decoration: none;
+}
+
+header a:hover {
+	color: #666; /* 링크에 마우스 올릴 때 색상 변경 */
+	text-decoration: none;
+}
+
+/* footer */
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 3px solid gray;
+	background-color: #f8f8f8;
+	padding: 20px 0;
+}
+
+footer div {
+	display: flex;
+	justify-content: space-between;
+	width: 940px;
+	color: #777;
+}
+
+footer section {
+	width: 300px;
+}
+
+footer h3 {
+	color: black;
+	margin-bottom: 10px; /* 제목 하단 간격 추가 */
+}
+
+footer a {
+	color: #333;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: #000;
+	text-decoration: underline; /* 링크에 마우스 올릴 때 밑줄 표시 */
+}
+
+footer ul {
+	margin: 0;
+	padding-left: 20px; /* 리스트 패딩 왼쪽에 추가 */
+	list-style: square;
+	color: #565656;
+}
+
+footer ul li a {
+	display: block;
+	text-decoration: none;
+}
+
+/*===============================================================*/
+
+.container{
+	width: 90%;
+	padding-top : 10px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+/* main */
+#mainImg img {
+	margin: 0 auto;
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+}
+
+/*content(상세설명 + sticky reservaion)*/
+#content{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	overflow: visible;
+	gap: 30px;
+}
+
+#details{
+	display: flex;
+	flex-direction: column;
+}
+
+#booking{
+    position: sticky;
+    top: 20px; 
+    align-self: flex-start;
+}
+
+#desc{
+    text-indent: 0; /* 첫 줄 들여쓰기 제거 */
+}
+
+/* border bottom */
+#desc, #Review, #charts, #map{
+	border-bottom: 0.5px solid lightgray;
+	margin: 20px 0px 20px 0px;
+	padding: 20px 0px;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+
+/* border top */
+#chartAndReview, #rooms{
+	border-top: 0.5px solid lightgray;
+	margin: 20px 0px 20px 0px;
+	padding: 20px 0px;
+	order: 0;
+}
+
+#totalP{
+	border-top: 0.5px solid lightgray;
+	padding-top: 20px;
+	text-align: right;
+}
+
+#nightP{
+	text-align: left;
+}
+
+/* form */
+#bookFrm{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px;
+	gap: 24px;
+	width: 330px;
+	border: 1px solid lightgray !important;
+	border-radius: 10px !important;
+	padding: 20px;
+	margin: 20px 0px;
+	box-shadow: 5px 5px 15px #565656 ;
+}
+
+#nightP, #input, #submit, #totalP{
+	width: 250px;
+}
+
+/* offers 영역*/
+#offerlist{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 20px;
+}
+
+#offer{
+	width: 300px;
+}
+
+#offer img{
+	width: 40px;
+	height: 40px;
+}
+
+/* rooms 영역*/
+#roomlist{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+#room{
+	width: 33%;
+}
+
+#room img{
+	width: 100%;
+	height: 150px;
+	border-radius: 10px;
+	object-fit: cover;
+	margin-bottom: 10px;
+}
+
+/*chart 영역 flex*/
+#charts{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+/*star rating*/
+.star-ratings {
+	color: #aaa9a9; 
+	position: relative;
+	unicode-bidi: bidi-override;
+	width: max-content;
+	-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 1.5px;
+	-webkit-text-stroke-color: crimson;
+}
+ 
+.star-ratings-fill {
+	color: #fff58c;
+	position: absolute;
+	z-index: 1;
+	display: flex;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	-webkit-text-fill-color: crimson;
+}
+ 
+.star-ratings-base {
+	z-index: 0;
+	padding: 0;
+}
+
+/*chart style*/
+.chart{
+	width: 33%;
+}
+
+
+</style>
+
+<script>
+	$(function() {
+		
+		updateName();
+
+		//MainImg 슬라이드
+	    $('#mainImg').slick({
+	    	slidesToShow: 1,
+	    	slidesToScroll: 1,
+	   		dots : true, 	
+	   		pauseOnHover : true,
+	    	autoplay: true,
+	    	autoplaySpeed: 1500,
+	    });
+		
+		//reserv button click event
+		function reserve() {
+
+		}//reserve
+
+		//chart-js(평점 bar chart)
+		var ctx = document.getElementById('rating-chart');
+		let ratings = ['5점','4점','3점','2점','1점'];
+
+		let ratingData = {
+				label: '이용객별 평점',
+				data:[25,10,2,1,1],
+				backgroundColor: 'lightgray',
+		};
+		let config = {
+				type:'bar',
+				data:{
+					labels: ratings,
+					datasets: [ratingData]
+				},
+				options: {
+	/* 				indexAxis: 'y', */
+					scales:{
+						x:{
+							ticks: {
+								maxRotation: 0, 
+						}
+					},	
+				},
+					maintainAspectRatio: false,
+	/* 			 	plugins: {
+						legend: {
+							display: false,
+						}
+					} */
+				}
 			}
+		var myChart = new Chart(ctx, config);
 
-			header, footer{
-				display: flex;
-				justify-content: space-between; /* ���� ������ ��Ҹ� ��ġ */
-				background: lightblue;
+		
+		//chart-js(평점 bar chart)
+		var ctx2 = document.getElementById('pie-chart');
+		let ratings2 = ['20대','30대','40대','50대','60대'];
+
+		let ratingData2 = {
+				label: '이용객별 평점',
+				data:[20,10,5,2,1],
+				backgroundColor: ['crimson','blue','green','yellow','purple'],
+		};
+		let config2 = {
+				type:'pie',
+				data:{
+					labels: ratings2,
+					datasets: [ratingData2]
+				},
+				options: {
+	/* 				indexAxis: 'y', */
+					scales:{
+					
+				},
+					maintainAspectRatio: false,
+	 			 	plugins: {
+						legend: {
+							display: false,
+						}
+					} 
+				}
 			}
-			header .headerLink{
-				display: flex;
-				gap : 30px; /* flexbox ��ҵ� ��ũ�� ���� ���� �߰�*/
-				margin-top: 20px;
-			}
-			main{
-				padding: 0 50px;
-				
-			}
-			#mainImg{
-				width: 60%;
-				height : 50%;
-			}
+		var myChart = new Chart(ctx2, config2);
+	});//ready
+
+	//localstorage 변경
+	function updateName() {
+
+		let ghName ="";
+		for(let key in localStorage){
+
+			if(key =='length')break;
+			
+			ghName = localStorage.getItem(key);
+			console.log(ghName);
+		}
+
+		console.log(ghName);
+
+		$('#ghName').text(ghName);
+	}//updateName
 
 
-		</style>
+</script>
+</head>
+<body>
 
-		<script>
-
-		</script>
-	</head>
-	<body>
-	
-		<header>
-			<img src ="../image/logo.png" id ="logo" width ="30px" height = "30px">
-			<div class ="headerLink">
-				<a href ="">Home</a>
-				<a href ="">MyPage</a>
+	<header>
+		<div class="header-left">
+			<img src="image/logo.png" id="logo" width="60px" height="60px">
+		</div>
+		<h1>이디오랜</h1>
+		<div class="header-right">
+			<div class="headerLink">
+				<h3><a href="./main.html">Home</a></h3> 
+				<h3><a href="#">MyPage</a></h3>
 			</div>
-		</header>
-		<main>
-			<h2>���ֵ� �޸����� �Խ�Ʈ �Ͽ콺</h2> <!-- ���� �������� ���� -->
-			<img id ="mainImg" src ="../image/guesthouse1.png">
-		</main>
-		<footer>
-			<img src ="../image/logo.png" id ="logo" width ="30px" height = "30px">
-		</footer>
+		</div>
+	</header>
 	
-	
-	</body>
+	<div class="container">
+		<!-- 숙소명 + 이미지(슬라이드) -->
+		<div id="main" >
+			<h2 id="ghName">guestHouse Name</h2>
+			<!-- 숙소 이미지 동적으로 수정-->
+			<div id="mainImg">
+				<img src="image/GH1.png"> 
+				<img src="image/GH2.png"> 
+				<img src="image/GH3.png">
+			</div>
+		</div>
+		<!-- 숙소상세설명 & 예약폼 -->
+		<div id="content">
+			<div id="details">
+				<div id="desc">
+					재방문율 압도적 1위, 리뷰수 7500++<br>
+					365일 매일 진행되는 게스트하우스 파티<br>
+					사람과 젊음을 즐길 준비 되었나요?<br><br>
+					제주도 게스트하우스파티 메르블루가 많은 사랑을 받고있는 이유입니다!<br><br>
+					제주도게스트하우스파티 NO.1<br>
+					메르블루에서 힐링을 누리고 가세요...
+				</div>
+				<div id="offers">
+					<h2>What this place offers</h2><br>
+					<div id="offerlist">
+						<div id="offer"><img src="image/icon1.png">&nbsp;&nbsp;Graden view</div>
+						<div id="offer"><img src="image/icon2.png">&nbsp;&nbsp;Kitchen</div>
+						<div id="offer"><img src="image/icon3.png">&nbsp;&nbsp;Wifi</div>
+						<div id="offer"><img src="image/icon4.png">&nbsp;&nbsp;Dryer</div>
+						<div id="offer"><img src="image/icon5.png">&nbsp;&nbsp;Air conditioning</div>
+					</div>
+				</div>
+				<div id="rooms">
+					<h2>Where you’ll sleep in</h2><br>
+					<div id="roomlist">
+						<div id="room"><img src="image/room1.PNG"><br><h5>101</h5><h6>2bed</h6></div><br>
+						<div id="room"><img src="image/room2.PNG"><br><h5>102</h5><h6>2bed</h6></div><br>
+						<div id="room"><img src="image/room3.PNG"><br><h5>103</h5><h6>2bed</h6></div><br>
+					</div>
+				</div>
+			</div>
+			<!-- 예약폼 영역 -->
+			<div id="booking">
+				<form id="bookFrm" action="#" name="frm">
+					<div id="nightP"><h6>₩70,000 / 1night</h6></div>
+					
+					<div id="input">
+					Room<br>
+					<select class="form-control form-control-md">
+						<option value="101">101</option>
+						<option value="102">102</option>
+						<option value="103">103</option>
+					</select>
+					</div>
+					<div id="input">
+					Check-in<br>
+					<input type="date" name="check-in" id="check-in" class="form-control form-control-md"> 
+					</div>	
+					<div id="input">
+					Check-out<br>
+					<input type="date" name="check-out" id="check-out" class="form-control form-control-md">
+					</div>
+					<div id="submit">
+					<input type="submit" onclick="reserve()" class="btn btn-danger btn-md" style="width:100%;">
+					</div>
+					<div id="totalP">
+						<h6>₩70,000 x 7 nights</h6>
+						<h5 style="text-decoration: underline;">total : ₩490,000</h5>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- 차트 및 리뷰영역 -->
+		<div id="chartAndReview">
+			<h3>평점 및 선호도</h3><br>
+			<div id="charts">
+				<div class="chart">
+					<h5>이용객 총 평점</h5><br>
+					<div class="star-ratings">	
+						<div 
+						class="star-ratings-fill space-x-2 text-lg"
+						:style="{ width: ratingToPercent + '%' }"
+						>
+						<span>★</span>&nbsp;<span>★</span>&nbsp;<span>★</span>&nbsp;<span>★</span>&nbsp;<span>★</span>
+						</div>
+						<div class="star-ratings-base space-x-2 text-lg">
+							<span>★</span>&nbsp;<span>★</span>&nbsp;<span>★</span>&nbsp;<span>★</span>&nbsp;<span>★</span>
+						</div>
+					</div>
+					<br><b><h3>4.92</h3></b>
+				</div>
+				<div class="chart">
+					<canvas id="rating-chart"></canvas>
+				</div>
+				<div class="chart">
+					<canvas id="pie-chart"></canvas>
+				</div>
+			</div>
+			<div id="Review">
+				<h4>리뷰</h4>
+				<h6>철수</h6>
+				<h6>2024/08/21</h6>
+				<h6>숙소가 너무 깨끗하고 좋아요! 위치도 너무 좋아요</h6>
+			</div>
+		</div>
+		<!-- Iframe google map  -->
+		<!-- 1. 구글지도에서 원하는 위치 선택 -->
+		<!-- 2. 공유 클릭 후 지도 퍼가기에서 소스 복사 -->
+		<div id="map">
+			<h3>지도</h3>
+			<iframe id="map"
+			src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13326.809559419919!2d126.8408724!3d33.378835!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d0fdfa2f10a05%3A0x9046eaf0fb95aea5!2sFishtree%20Cafe%20%26%20Guesthouse!5e0!3m2!1sko!2skr!4v1724306996250!5m2!1sko!2skr" 
+			width="100%" 
+			height="450" 
+			style="border:0;" 
+			allowfullscreen="" 
+			loading="lazy" 
+			referrerpolicy="no-referrer-when-downgrade">
+			</iframe>
+		</div>
+	</div>
+
+	<footer>
+		<div>
+			<section id="about">
+				<h3>About</h3>
+				<p>
+					회사소개 <br /> <a href="mailto:uhseoohgea@gmail.com">uhseoohgea@gmail.com</a>
+				</p>
+			</section>
+			<section id="security">
+				<h3>개인정보 취급 방침</h3>
+				<ul>
+					<li><a href="#">개요</a></li>
+					<li><a href="#">문의처</a></li>
+				</ul>
+			</section>
+			<section id="notice">
+				<h3>공지사항</h3>
+				<ul>
+					<li><a href="#">오시는 길</a></li>
+					<li><a href="#">오류시 문의사항</a></li>
+				</ul>
+			</section>
+		</div>
+	</footer>
+
+</body>
 </html>
