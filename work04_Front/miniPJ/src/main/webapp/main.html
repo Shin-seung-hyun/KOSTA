@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 
 <link rel="stylesheet" href="https://webfontworld.github.io/daegu/DalseoHealing.css">
 
@@ -21,7 +21,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-<title>메인페이지</title>
+<title>硫��명���댁�</title>
 
 <style type="text/css">
 * {
@@ -30,7 +30,7 @@
 	box-sizing: border-box;
 }
 
-/* 전체 레이아웃 기본 스타일 */
+/* ��泥� ���댁���� 湲곕낯 �ㅽ���� */
 body {
 	font-family : 'DalseoHealing' !important;
 }
@@ -38,18 +38,18 @@ body {
 /* header */ 
 header {
 	display: flex;
-	align-items: center; /* 세로 가운데 정렬 */
-	justify-content: space-between; /* 좌우 끝 정렬 */
+	align-items: center; /* �몃� 媛��대�� ���� */
+	justify-content: space-between; /* 醫��� �� ���� */
 	border-bottom: 3px solid gray;
-	padding: 0 70px; /* 좌우 패딩 추가 */
+	padding: 0 70px; /* 醫��� �⑤�� 異�媛� */
 	height: 70px;
-	background-color: #f8f8f8; /* 배경색 */
+	background-color: #f8f8f8; /* 諛곌꼍�� */
 }
 
 header .headerLink {
 	display: flex;
-	align-items: center; /* 세로 가운데 정렬 */
-	gap: 30px;	/* 링크 간 간격  */
+	align-items: center; /* �몃� 媛��대�� ���� */
+	gap: 30px;	/* 留��� 媛� 媛�寃�  */
 }
 
 header h1{
@@ -58,7 +58,7 @@ header h1{
 
 header h3 {
 	color: black;
-	margin: 0; /* 제목 요소의 기본 마진 제거 */
+	margin: 0; /* ��紐� ������ 湲곕낯 留�吏� ��嫄� */
 }
 
 header a {
@@ -67,7 +67,7 @@ header a {
 }
 
 header a:hover {
-	color: #666; /* 링크에 마우스 올릴 때 색상 변경 */
+	color: #666; /* 留��ъ�� 留��곗�� �щ┫ �� ���� 蹂�寃� */
 	text-decoration: none;
 }
 
@@ -94,7 +94,7 @@ footer section {
 
 footer h3 {
 	color: black;
-	margin-bottom: 10px; /* 제목 하단 간격 추가 */
+	margin-bottom: 10px; /* ��紐� ���� 媛�寃� 異�媛� */
 }
 
 footer a {
@@ -104,12 +104,12 @@ footer a {
 
 footer a:hover {
 	color: #000;
-	text-decoration: underline; /* 링크에 마우스 올릴 때 밑줄 표시 */
+	text-decoration: underline; /* 留��ъ�� 留��곗�� �щ┫ �� 諛�以� ���� */
 }
 
 footer ul {
 	margin: 0;
-	padding-left: 20px; /* 리스트 패딩 왼쪽에 추가 */
+	padding-left: 20px; /* 由ъ�ㅽ�� �⑤�� �쇱そ�� 異�媛� */
 	list-style: square;
 	color: #565656;
 }
@@ -129,7 +129,7 @@ footer ul li a {
 	background-image: url("image/BG.jpg");
 	background-size: cover;
 	height : 400px;
-	text-align: center; /* 중앙 정렬 */
+	text-align: center; /* 以��� ���� */
 
 	position: relative;
 	overflow: hidden;
@@ -145,7 +145,7 @@ footer ul li a {
 	height: 100%;
 	background-image: url("image/BG.jpg");
 	background-size: cover;
-	background-position: center; /* 배경 이미지 중앙 정렬 */
+	background-position: center; /* 諛곌꼍 �대�몄� 以��� ���� */
 	opacity: 0.5; 
 	z-index: 0; 
 }
@@ -153,7 +153,7 @@ footer ul li a {
 .search p{
 	color: #f8f8f8;
 	font-size : 50px;
-	position: relative; /* 텍스트가 배경 위에 위치하도록 설정 */
+	position: relative; /* ���ㅽ�멸� 諛곌꼍 ���� ��移�����濡� �ㅼ�� */
 	z-index: 1;
 }
 
@@ -178,13 +178,13 @@ footer ul li a {
 
 .searchResult{
 	margin : 100px auto;
-	width: 50%; /* 가운데 정렬을 위해 너비 설정 */
+	width: 50%; /* 媛��대�� ���ъ�� ���� ��鍮� �ㅼ�� */
 }
 .searchResult .content{
 
 	display: flex;
-	flex-direction: row;/* 수평 방향 나열 */
-	align-items: center; /* 세로 가운데 정렬 */
+	flex-direction: row;/* ���� 諛⑺�� ���� */
+	align-items: center; /* �몃� 媛��대�� ���� */
 	width: 100%;
 	height : 200px;
 	margin-bottom: 40px;
@@ -194,7 +194,7 @@ footer ul li a {
 
 
 .searchResult .content-left{
-	width: 30%; /* 왼쪽 콘텐츠의 너비를 40%로 설정 */
+	width: 30%; /* �쇱そ 肄���痢��� ��鍮�瑜� 40%濡� �ㅼ�� */
 	height : 100%;
 	margin-right: 20px;
 }
@@ -206,18 +206,18 @@ footer ul li a {
 }
 
 .searchResult .content-right{
-	width: 70%; /* 오른쪽 콘텐츠의 너비를 60%로 설정 */
+	width: 70%; /* �ㅻⅨ履� 肄���痢��� ��鍮�瑜� 60%濡� �ㅼ�� */
 	height: 100%;
 	padding-top: 30px;
 	display: flex;
-	flex-direction: column; /* 수직 방향 정렬*/
+	flex-direction: column; /* ��吏� 諛⑺�� ����*/
 }
 
 .searchResult .content-right #price{
-	margin-top: auto; /* 남는 공간을 위로 밀어 가격을 아래로 배치 */
+	margin-top: auto; /* �⑤�� 怨듦��� ��濡� 諛��� 媛�寃⑹�� ����濡� 諛곗� */
 	margin-right: 30px;
 	padding-bottom: 20px;
-	text-align: right; /* 가격을 오른쪽 정렬 */
+	text-align: right; /* 媛�寃⑹�� �ㅻⅨ履� ���� */
 }
 
 .searchResult #ghName{
@@ -233,7 +233,7 @@ footer ul li a {
 <script type="text/javascript">
 	$(function() {
 
-		// option이 선택 되면 
+		// option�� ���� ��硫� 
 		$("#searchloc").on("change", function(){
 			let locArr = [	"jeju_western",
 							"seogwipo_western",
@@ -257,7 +257,7 @@ footer ul li a {
 		
 		});
 
-		//content가 선택되면 LocalStorage 저장하기
+		//content媛� ������硫� LocalStorage ���ν��湲�
 		$(".content").on("click", function(){
 
 			let key = $(this).find("h2#ghName").attr("id");
@@ -291,7 +291,7 @@ footer ul li a {
 		<div class="header-left">
 			<img src="image/logo.png" id="logo" width="60px" height="60px">
 		</div>
-		<h1>이디오랜</h1>
+		<h1>�대���ㅻ��</h1>
 		<div class="header-right">
 			<div class="headerLink">
 				<h3><a href="./main.html">Home</a></h3> 
@@ -303,18 +303,18 @@ footer ul li a {
 	<!-- main  -->
 	<div class ="main">
 		<div class = "search">
-			<p>설렘 가득한 제주에서 추억을 만들어보세요</p>
+			<p>�ㅻ�� 媛����� ��二쇱���� 異��듭�� 留��ㅼ�대낫�몄��</p>
 			<div class = "serachBorder" action ="#">
-				<span>어디로 떠나시겠습니까?</span>
+				<span>�대��濡� ������寃��듬��源�?</span>
 				
 				<span>
 					<select id = "searchloc">
-						<option value="jeju_western">제주시 서부</option>
-						<option value ="seogwipo_western">서귀포시 서부</option>				
-						<option value ="jeju_center">제주 시내권</option>
-						<option value="seogwiop_enter">서귀포시</option>				
-						<option value="jeju_eastern">제주시 동부</option>
-						<option value="seogwipo_eastern">서귀포시 동부</option>																
+						<option value="jeju_western">��二쇱�� ��遺�</option>
+						<option value ="seogwipo_western">��洹��ъ�� ��遺�</option>				
+						<option value ="jeju_center">��二� ���닿�</option>
+						<option value="seogwiop_enter">��洹��ъ��</option>				
+						<option value="jeju_eastern">��二쇱�� ��遺�</option>
+						<option value="seogwipo_eastern">��洹��ъ�� ��遺�</option>																
 					</select>
 				</span>
 			</div>
@@ -327,14 +327,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName" value = "솔게스트 하우스">솔게스트 하우스</h2>
+					<h2 id = "ghName" value = "��寃��ㅽ�� ���곗��">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -343,14 +343,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName" value = "솔게스트 하우스2">솔게스트 하우스</h2>
+					<h2 id = "ghName" value = "��寃��ㅽ�� ���곗��2">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -359,14 +359,14 @@ footer ul li a {
 					<img src="./image/GH2.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -375,14 +375,14 @@ footer ul li a {
 					<img src="./image/GH2.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -391,14 +391,14 @@ footer ul li a {
 					<img src="./image/GH3.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -407,14 +407,14 @@ footer ul li a {
 					<img src="./image/GH3.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -423,14 +423,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>	
@@ -439,14 +439,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -455,14 +455,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -471,14 +471,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>		
@@ -487,14 +487,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>
@@ -503,14 +503,14 @@ footer ul li a {
 					<img src="./image/GH1.png">
 				</div>
 				<div class="content-right">
-					<h2 id = "ghName">솔게스트 하우스</h2>
+					<h2 id = "ghName">��寃��ㅽ�� ���곗��</h2>
 						
-					<p> 놀러오세요
-						정말 좋아요
-						뷰가 멋져요
+					<p> ���ъ�ㅼ�몄��
+						��留� 醫�����
+						酉곌� 硫��몄��
 					</p>
 					<div id ="price" >
-						<p >￦60,000</p>
+						<p >占�60,000</p>
 					</div>
 				</div>
 			</div>				
@@ -524,21 +524,21 @@ footer ul li a {
 			<section id="about">
 				<h3>About</h3>
 				<p>
-					회사소개 <br /> <a href="mailto:uhseoohgea@gmail.com">uhseoohgea@gmail.com</a>
+					���ъ��媛� <br /> <a href="mailto:uhseoohgea@gmail.com">uhseoohgea@gmail.com</a>
 				</p>
 			</section>
 			<section id="security">
-				<h3>개인정보 취급 방침</h3>
+				<h3>媛��몄��蹂� 痍④� 諛⑹묠</h3>
 				<ul>
-					<li><a href="#">개요</a></li>
-					<li><a href="#">문의처</a></li>
+					<li><a href="#">媛���</a></li>
+					<li><a href="#">臾몄��泥�</a></li>
 				</ul>
 			</section>
 			<section id="notice">
-				<h3>공지사항</h3>
+				<h3>怨듭��ы��</h3>
 				<ul>
-					<li><a href="#">오시는 길</a></li>
-					<li><a href="#">오류시 문의사항</a></li>
+					<li><a href="#">�ㅼ���� 湲�</a></li>
+					<li><a href="#">�ㅻ��� 臾몄���ы��</a></li>
 				</ul>
 			</section>
 		</div>
