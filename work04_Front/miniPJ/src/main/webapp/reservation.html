@@ -3,10 +3,6 @@
 <head>
 <meta charset="utf-8">
 
-
-
-
-
 <!-- slick CSS - cdn -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <!-- slick css-theme cdn  -->
@@ -509,6 +505,7 @@ footer ul li a {
 				//변경사항 적용
 				$('#total-amount').text(`total : ₩${totalAmount.toLocaleString()}`);
 				$('#night-rate').text(`₩${ratePerNight.toLocaleString()} x ${nightDifference} night(s)`);
+				
 			} else if (checkOutDate <= checkInDate){
 				alert('체크아웃 날짜는 체크인 날짜보다 늦어야 합니다.');
 			} else if (checkInDate<today || checkOutDate<today){
