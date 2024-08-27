@@ -21,8 +21,27 @@ public class FormServlet extends HttpServlet {
     // 클라이언트의 요청이 서버 상으로 들어오면 doGet() 컨테이너에 의해서 호출된다.
     // 이때, 폼에 입력된 값이 요청정보를 타고 서버로 전달된다.
     
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//1. 폼에 입력된 값 id, password 값을 받아온다.
+		String id= request.getParameter("userId");
+		String pass = request.getParameter("userPass");
+		
+		//2. 받아온 값을 브라우저로 출력
+		//	 * ID : KOSTA
+		//	 * PASS : 1234 
+		PrintWriter out= response.getWriter();
+		out.println("<html><body><h3>");
+		out.println("<ul><li>ID : " + id + "</li>");
+		out.println("<li>PASS : " + pass + "</li></ul>");
+		out.println("</h3></body></html>");
+		
+		out.close();
+		
+	}
+    
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//	
 //		//1. 폼에 입력된 값 id, password 값을 받아온다.
 //		String id= request.getParameter("userId");
 //		String pass = request.getParameter("userPass");
@@ -40,25 +59,5 @@ public class FormServlet extends HttpServlet {
 //		out.close();
 //		
 //	}
-    
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		//1. 폼에 입력된 값 id, password 값을 받아온다.
-		String id= request.getParameter("userId");
-		String pass = request.getParameter("userPass");
-		
-		//2. 받아온 값을 브라우저로 출력
-		//	 * ID : KOSTA
-		//	 * PASS : 1234 
-		
-		PrintWriter out= response.getWriter();
-		out.println("<html><body><h3>");
-		out.println("<ul><li>ID : " + id + "</li>");
-		out.println("<li>PASS : " + pass + "</li></ul>");
-		out.println("</h3></body></html>");
-		
-		out.close();
-		
-	}
 
 }

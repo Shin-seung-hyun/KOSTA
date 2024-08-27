@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /*
 @Annotation 기법
  
-container는 @WebServlet("/SS")을 보고
+container는 @WebServlet("/SS")을 보고530
 아래와 같이 transfer 한다.
 
 	<servlet>
