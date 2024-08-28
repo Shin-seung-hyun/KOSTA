@@ -1,7 +1,8 @@
 package web.servlet.controller;
 
-import java.io.DataOutput;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,30 +26,27 @@ public class MainServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
+		PrintWriter out=  response.getWriter(); 
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
-		//원래 비즈니스 로직에서 User를 받았다고 가정한다면
-//		User user = new User(id, password,"신승현","종각");
-//		if(user !=null) {
-//			request.setAttribute("user", user);
-//			request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
-//		}
-//		else {
-//			request.getRequestDispatcher("loginError.jsp").forward(request, response);
-//		}
 		
-		//MVC 무시하고, 코드 실행을 위해 내가 작성한 코드
 		if(id.equals("kosta") && password.equals("1234") ) {
 			
-			// DB에서 id와 password에 해당하는 User 객체 가져오기
 			User user = new User(id, password,"신승현","종각");
 			request.setAttribute("user", user);
-			request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
+			
+			//페이지 이동
+			//request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
+			
+			// 아래 코드는 에러가 발생한다.
+			out.println("<a href ='loginSuccess.jsp'>Sucess Page 이동</a>");
 			
 		}
 		else {
-			request.getRequestDispatcher("loginError.jsp").forward(request, response);
+			//request.getRequestDispatcher("loginError.jsp").forward(request, response);
+			out.println("<a href ='loginError.jsp'>Error Page 이동</a>");
 		}
 		
 		
