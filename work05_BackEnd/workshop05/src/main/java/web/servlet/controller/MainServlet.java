@@ -26,7 +26,7 @@ public class MainServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//0. 한국어 인코딩
 		request.setCharacterEncoding("utf-8");
@@ -53,6 +53,9 @@ public class MainServlet extends HttpServlet {
 
 			ProductDAOImpl.getInstance().registerProduct(pvo);
 			
+			//해당 요청은 하나의 서블릿에서 여러가지 일을 함으로 잘못된 방식이다.
+			//listServlet을 만들어서 redirect를 해야 한다.
+			// response.redirect("list");
 			ArrayList<Product> list = ProductDAOImpl.getInstance().findProducts();
 			
 			request.setAttribute("list", list);
