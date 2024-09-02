@@ -17,8 +17,8 @@ import web.servlet.model.MemeberDAOImpl;
 @WebServlet("/AllMemeber")
 public class AllMemeberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}

@@ -29,8 +29,8 @@ public class RegisterServlet extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//0. 한국어 인코딩
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
+//		request.setCharacterEncoding("utf-8");
+//		response.setContentType("text/html;charset=utf-8");
 		
 		//1. 폼값 가져오기 trim 쓰기
 		String id = request.getParameter("id").trim();

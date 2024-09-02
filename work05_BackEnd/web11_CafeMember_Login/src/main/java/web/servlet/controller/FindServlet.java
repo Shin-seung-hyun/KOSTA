@@ -49,8 +49,8 @@ public class FindServlet extends HttpServlet {
 		  
 		 */
 		
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
+//		request.setCharacterEncoding("utf-8");
+//		response.setContentType("text/html;charset=utf-8");
 		
 		String id = request.getParameter("id");
 		String path = "find_fail.jsp";
