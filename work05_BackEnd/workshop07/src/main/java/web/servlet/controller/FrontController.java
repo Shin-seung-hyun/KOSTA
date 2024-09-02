@@ -38,10 +38,33 @@ public class FrontController extends HttpServlet {
 		if(command.equals("login"))  path = login(request, response); //login.html
 		else if(command.equals("bookRegister"))  path = bookRegister(request, response); //Book.html
 		else if(command.equals("showAllBook"))  path = showAllBook(request, response); //bookView.jsp
-			
+		else if (command.equals("searchBook"))  path = searchBook(request, response); //bookView.jsp
+		
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 	
+	
+	private String searchBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String path = "";
+		BookDAOImpl dao = BookDAOImpl.getInstance();
+		
+		try {
+			String category = request.getParameter("category");
+			String search = request.getParameter("search");
+			
+			ArrayList<Book> books = dao.searchBook( category, search);
+			request.setAttribute("books", books);
+			path= "./book/bookView.jsp";
+			
+		}catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
+		
+		return path;
+	
+	}
 	private String showAllBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String path = "";

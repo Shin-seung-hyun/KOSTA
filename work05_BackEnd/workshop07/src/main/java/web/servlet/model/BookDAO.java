@@ -13,4 +13,5 @@ public interface BookDAO {
 	
 	void registerBook(Book vo) throws SQLException;
 	ArrayList<Book> showAllBook() throws SQLException;
+	ArrayList<Book> searchBook(String category, String search) throws SQLException;
 }

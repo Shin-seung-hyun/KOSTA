@@ -16,8 +16,10 @@
 	<br>
 	<h1>${vo.userId} 님이 로그인 되었습니다~~!!!
 	</h1>
+	
 	<br>
 	<a href="./book/Book.html">추가 등록</a><br><br>
+	
 	<br>
 	<a href="./front.do?command=showAllBook">도서목록</a><br><br>
 </body>

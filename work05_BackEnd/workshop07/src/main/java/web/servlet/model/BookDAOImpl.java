@@ -97,10 +97,61 @@ public class BookDAOImpl implements BookDAO{
 				b.setCurrency(rs.getString(9));
 				list.add(b);
 			}
+			
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}finally {
 			closeAll(rs, ps, conn);
+		}
+		return list;
+	}
+	
+	
+	@Override
+	public ArrayList<Book> searchBook(String category, String search) throws SQLException {
+		ResultSet rs = null;
+		ArrayList<Book> list = new ArrayList<>();
+		
+		String query = "SELECT * FROM book ";
+		switch(category) {
+			case "title" : 
+				query += "WHERE title LIKE ?";
+				break;
+				
+			case "publisher" : 
+				query += "WHERE publisher LIKE ?";
+				break;
+			
+			default :
+				break;
+		}
+		
+		System.out.println(query);
+		
+		try(Connection conn = getConnection(); 
+			PreparedStatement ps = conn.prepareStatement(query)) {
+			
+			System.out.println("PreparedStatement.");
+			
+			if(!category.equals("all")) {
+				ps.setString(1, "%" + search + "%");
+			}
+			
+			System.out.println(query);
+			
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Book book = new Book(rs.getString("isbn"), rs.getString("title"), rs.getString("catalogue"),
+                        rs.getString("nation"), rs.getString("publish_date"), rs.getString("publisher"),
+                        rs.getString("author"), rs.getInt("price"), rs.getString("description")
+                        );
+				book.setCurrency(rs.getString("currency"));
+				list.add(book);
+			}
+			
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+			
 		}
 		return list;
 	}
