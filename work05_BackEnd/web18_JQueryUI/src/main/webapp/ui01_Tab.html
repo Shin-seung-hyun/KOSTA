@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Tabs - Default functionality</title>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/start/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+
+
+<!--  
+	정적인 컨텐츠가 tab의 내용으로 들어가 있다.
+	우린 이것을 프로그램이 수정한 결과가 동적으로 나오도록 로직을 변경했다.
+	이를 위해서는 FrontController의 작동원리를 이해하고 Controller,View,DAO 기능을 연결만 하면 된다.
+-->
+<script>
+	$(()=>{
+		$("#tabs").tabs();
+		
+		
+	}); //ready
+
+</script>
+
+</head>
+<body>
+
+	<div id="tabs">
+		<ul>
+			<li><a href ="tabpages/content1.jsp">정치사회</a></li>
+			<li><a href ="tabpages/content2.jsp">웰빙 건강</a></li>
+			<li><a href ="tabpages/content3.jsp">스포츠</a></li>
+			<li><a href ="tabpages/content4.jsp">주식 경제</a></li>
+		</ul>
+	
+	</div>	
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.edu;
+package com.myAlgo;
 
 import java.util.ArrayList;
 import java.util.HashMap;

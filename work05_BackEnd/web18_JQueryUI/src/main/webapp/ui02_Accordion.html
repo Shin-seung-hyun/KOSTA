@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Accordion - Default functionality</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/sunny/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#accordion").accordion({
+			/* 컨텐트에 맞게 어코디언의 높이를 조절 */
+			heightStyle : 'content'
+		});
+		
+		//1. h3 태그를 클릭하면 
+		$("#accordion h3").on('click', function(){
+			
+			//2. h3 안의 data
+			let text= $(this).text();
+			//alert(text);
+			
+			//3. 비동기 통신 로직
+			if( text == "Full Stack Subjects"){
+				//두번째 div h3를 클리하면
+				
+				$.ajax({
+					
+					type : 'post',
+					url : 'front.do?command=subject',
+							
+					success : function(result){
+						$("#subjects").html(result);
+					}		
+				});
+			}
+			else if( text == "Association Global IT Company"){
+				//세번째 div h3를 클리하면
+				$.ajax({
+					
+					type : 'post',
+					url : 'front.do?command=company',
+							
+					success : function(result){
+						$("#company").html(result);
+					}		
+				});
+				
+			}
+			
+		}); //h3 click
+		
+		//4. 버튼 클리하면 함수 호출되도록
+		$("#creation").on('click',function(){
+				
+			let footer = "<h3>How to on the way Kosta</h3><div>서울 특별시 종로구 우정국로 2길 대왕빌딩</div>";
+			
+			//동적으로 어코디언을 만들 때는 'destroy' 옵션으로 이전 어코디언을 완전히 삭제한 후에 다시 어코디언을 생성
+			
+			//버튼 없애기
+			$(this).remove();
+			
+			$("#accordion").append(footer).accordion("destroy").accordion({
+			    heightStyle: 'content'
+			});
+			
+		});
+		
+		
+	});//ready
+	
+</script>
+</head>
+<body>
+
+	<div id="accordion">
+		<h3>Kosta Education Introduction</h3>
+		<div>
+			<p>안녕하세요. KOSTA입니다. 한국SW기술진흥협회에서 진행하는 2024년 개발자 양성 과정 교육생 모집
+				안내입니다!
+			</p>
+		</div>	
+		
+		<!-- 데이터를 비동기로 받아보자 -->
+		<h3>Full Stack Subjects</h3>
+		<div id ="subjects">
+		</div>
+
+		<h3>Association Global IT Company</h3>
+		<div id ="company">
+		</div>
+		
+		
+	</div>
+	
+	<hr>
+		
+	<input type ="button" value ="Creation Accordion Section" id ="creation">
+	
+	
+</body>
+</html>
