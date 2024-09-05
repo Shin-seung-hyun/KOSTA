@@ -34,14 +34,18 @@ h2 {
 .fruit {
     display: flex;
     flex-direction: column;
-    align-items: right;
-    width: 150px;
+    width: 200px;
     margin-bottom: 20px; 
+    margin-left : 10px;
+}
+
+.fruit span{
+    text-align: left;
 }
 
 .fruit img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border: 2px solid black;
     border-radius: 5px;
 }
@@ -74,8 +78,8 @@ h2 {
         <c:forEach var="item" items="${items}">
             <div class="fruit">
                 <a href="itemView.do?itemNum=${item.itemNumber}" id ="fruitImg"><img src="${item.url}"></a><br>
-                상품명 : <span class="name">${item.name}</span><br>
-                가격 : <span class="price">${item.price}</span><br>
+                <span class="name">상품명 : ${item.name}</span><br>
+                <span class="price">가격 : ${item.price}</span><br>
             </div>
         </c:forEach>
     </div>

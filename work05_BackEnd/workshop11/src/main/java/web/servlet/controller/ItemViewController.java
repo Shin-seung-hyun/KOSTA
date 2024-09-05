@@ -22,8 +22,17 @@ public class ItemViewController implements Controller {
 			Item item =ItemDao.getInstance().getItem(itemNum);
 			
 			if(item != null) {
-				request.setAttribute("item", item);
-				path = "itemView.jsp";
+				
+				boolean isUpdate = ItemDao.getInstance().updateRecordCount(itemNum);
+				
+				if(isUpdate) {
+					
+					request.setAttribute("item", item);
+					path = "itemView.jsp";
+					
+				}
+				
+				
 			}	
 			
 		}catch (SQLException e) {

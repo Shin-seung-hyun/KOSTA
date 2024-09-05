@@ -10,29 +10,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
-<script type="text/javascript">
-
-	$(function() {
-		
-		$("#view").on(click, function({
-			
-			$.ajax({
-                type: "get",
-                url: "recordCount.do?itemNum=${item.itemNumber}",
-                success: function (result) {
-                	$("#view").text(result.count);
-
-                }
-            })
-			
-		});
-		
-	});
-
-
-</script>
-
-
 <style>
 
 * {
@@ -45,9 +22,10 @@ h2 {
 }
 
 #header {
-    background : yellow;
+    background : orange;
     margin-bottom: 20px;
     padding : 20px;
+    text-align : right;
 }
 
 .content {
@@ -70,28 +48,35 @@ h2 {
     gap: 10px; 
 }
 
+a{
+	margin-top : 30px;
+	display : inline-block;
+}
+
 </style>
+
+
 
 </head>
 <body>
 	<h2>${item.name}의 정보</h2>
 	<div id ="header">
-		조회수 : <p id ="view">${item.count}</p>
-		장바구니 담기
-		장바구니 확인 
+		<span id ="view">조회수 : ${item.count}</span>&nbsp;&nbsp;
+		<span>장바구니 담기</span>&nbsp;&nbsp;
+		<span>장바구니 확인</span> 
 	</div>
 	
 	<div class ="content">
 		<img src="${item.url}">
 		<div>
-			종류 : <p class="price">${item.name}</p><br>
-			가격 : <p class="price">${item.price}</p><br>
-		 	설명 : <p class="price">${item.description}</p><br>
+			<p class="price">종류 : ${item.name}</p><br>
+			<p class="price">가격 : ${item.price}</p><br>
+		 	<p class="price">설명 : ${item.description}</p><br>
 		</div>
 	</div>
 	
 	
-	<a href ="#">상품 목록 보기</a>
+	<a href ="itemList.do">상품 목록 보기</a>
 	
 </body>
 </html>

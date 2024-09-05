@@ -31,11 +31,6 @@ public class HandlerMapping {
 			System.out.println("itemListController 실행");
 		}
 		
-		else if( command.equals("recordCount.do")) {
-			controller = new recordCountController();
-			System.out.println("recordCountController 실행");
-		}
-		
 		return controller;
 	}
 
