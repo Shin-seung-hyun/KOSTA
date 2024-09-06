@@ -63,7 +63,7 @@ h2 {
 
 	        let itemInfo = { name: name, price: price };
 	        
-	        localStorage.setItem("item", JSON.stringify(itemInfo));
+	        localStorage.setItem("item"+ indx, JSON.stringify(itemInfo));
 	    }); */
 	});
 

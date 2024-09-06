@@ -28,6 +28,14 @@
 		    border: none;
 		    font-size: 1rem;
         }
+        
+         #title button:hover {
+        	background: transparent;
+		    border: none;
+		    font-size: 1rem;
+		    cursor: pointer;
+        }
+        
         #title a {
         	text-decoration: none;
         	color: black;
@@ -67,13 +75,32 @@
         #right-content p {
             margin: 40px;
         }
-    </style>    
+    </style>
+    
+    
+<script type="text/javascript">
+	function basket() {
+	    alert("장바구니에 등록되었습니다.");
+	    
+	    // JSP 변수를 올바르게 자바스크립트에서 처리
+	    let itemInfo = {
+	        url: "${item.url}",
+	        name: "${item.name}",
+	        price: "${item.price}"
+	    };
+	
+	    // key로 사용할 때 JSP 변수를 자바스크립트에서 올바르게 처리
+	    localStorage.setItem("fruits_" + "${item.itemNumber}", JSON.stringify(itemInfo));
+	}
+</script> 
+
+   
 </head>
 <body>
 	<h1> ★ ${item.name} 의 정보</h1>
 	<p id="title">
        	 조회수 : ${item.count}
-        <button name="cartinsert" id="${item.itemNumber}" value="${item.url}, ${item.name}, ${item.price}"><b>장바구니 담기</b></button>
+        <button name="cartinsert" id="${item.itemNumber}" value="${item.url}, ${item.name}, ${item.price}" onclick="basket()"><b>장바구니 담기</b></button>
         <a href="cartList.jsp">장바구니 확인</a>
     </p>
     <div id="desc">

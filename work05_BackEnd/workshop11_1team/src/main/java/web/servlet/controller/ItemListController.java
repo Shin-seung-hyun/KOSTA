@@ -13,29 +13,18 @@ public class ItemListController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-			
+		//////////// 브라우저에서 전달되는 모든 쿠키정보를 받는 로직을 작성 ///////////////////
+		// request.getCookies()...그중에서 fruitshop 사이트의 쿠키정보만 받아오도록
 		
-		///////// 브라우저에서 전달되는 모든 쿠키정보를 받는 로직 ///////////
-		// request.getCookies() 중에서 fruit 사이트의 쿠키만 받아옴
-		Cookie [] cookies = request.getCookies();
 		ArrayList<String> fruits = new ArrayList<String>();
-		
-		// 쿠키를 차단하는 사이트가 있음, 또한 만료기간이 있음
-		if(cookies !=null) {
-			
+		Cookie[] cookies = request.getCookies();
+		if(cookies!=null) {
 			for(Cookie c : cookies) {
-				
-				if(c.getName().startsWith("fruitshop")) {
-					fruits.add(c.getValue());
-					
-				}
+				if(c.getName().startsWith("fruitshop")) fruits.add(c.getValue());
 			}
 		}
-		
+		System.out.println(fruits);
 		request.setAttribute("fruits", fruits);
-
-		//////////////////////////////////////////////////////
-		
 		
 		ArrayList<Item> list=ItemDao.getInstance().getAllItem();
 		System.out.println(list);

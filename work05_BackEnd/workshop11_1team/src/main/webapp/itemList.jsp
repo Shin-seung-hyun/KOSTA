@@ -50,23 +50,19 @@ table{
 				<p>가 격 : ${fruit.price}원</p>
 			</div>
 		</c:forEach>
-	</div>
-	
-	<!-- 오늘 본 상품 정보를 출력 : 만약 오늘 본 상품 정보가 존재한다면 출력  -->
-	<div>
-		<c:if test="${not empty fruits}">
-			<h2 align="center"><font color="#708090">오늘 본 상품들</font></h2>
-			<table align="center" bgcolor ="#B0C4DE">
-				<tr>
-					<c:forEach items = "${fruits}" var ='todayfruit'>
-						<td>
-							<img alt="" src="${todayfruit}" width = "100" height ="100">
-						</td>
-					</c:forEach>
-				</tr>
-			</table>
-		</c:if>	
 	</div>	
-
+	
+	
+	<!-- 오늘 본 상품정보를 여기다가 출력 :: 만약에 오늘 본 상품정보가 존재한다면 출력 -->
+	<c:if test="${not empty fruits}">
+		<h2 align="center"><font color="#708090">오늘 본 상품들</font></h2>
+		<table align="center" bgcolor="#B0C4DE">
+			<tr>
+				<c:forEach items="${fruits}" var="fruit">
+					<td><img src="${fruit}" width="100px" height="100px"></td>
+				</c:forEach>
+			</tr>
+		</table>
+	</c:if>	
 </body>
 </html>

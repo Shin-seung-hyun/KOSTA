@@ -162,7 +162,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="web22_FactoryPattern_CafeMember" path="/web22_FactoryPattern_CafeMember" reloadable="true" source="org.eclipse.jst.jee.server:web22_FactoryPattern_CafeMember"/><Context docBase="workshop10" path="/workshop10" reloadable="true" source="org.eclipse.jst.jee.server:workshop10"/><Context docBase="workshop11" path="/workshop11" reloadable="true" source="org.eclipse.jst.jee.server:workshop11"/><Context docBase="workshop11_2" path="/workshop11_2" reloadable="true" source="org.eclipse.jst.jee.server:workshop11_2"/></Host>
+      <Context docBase="web22_FactoryPattern_CafeMember" path="/web22_FactoryPattern_CafeMember" reloadable="true" source="org.eclipse.jst.jee.server:web22_FactoryPattern_CafeMember"/><Context docBase="workshop10" path="/workshop10" reloadable="true" source="org.eclipse.jst.jee.server:workshop10"/><Context docBase="workshop11" path="/workshop11" reloadable="true" source="org.eclipse.jst.jee.server:workshop11"/><Context docBase="workshop11_2team" path="/workshop11_2team" reloadable="true" source="org.eclipse.jst.jee.server:workshop11_2team"/></Host>
     </Engine>
   </Service>
 </Server>
