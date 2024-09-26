@@ -29,8 +29,6 @@ public class AjaxServlet extends HttpServlet {
 			
 		}
 		
-		
-		
 		request.getRequestDispatcher("result.jsp").forward(request, response);
 		
 	}
