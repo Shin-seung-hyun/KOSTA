@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+<!-- A,B,C, player02 4개의 빈을 정의 -->
+	<bean id ="diceA" class ="spring.service.dice.impl.DiceAImpl"></bean>
+	<bean id ="diceB" class ="spring.service.dice.impl.DiceBImpl"/>
+	<bean id ="diceC" class ="spring.service.dice.impl.DiceCImpl"/>
+
+
+<!-- player01 빈은 A주사위를 가지고 노는 빈이다. ... Setter로 주입해보자 
+	 player01.setDice(new DiceAImpl())
+-->
+	<bean id = "player01" class ="spring.service.dice.play.Player02">
+		<property name="dice" ref = "diceA"></property>
+	</bean>
+	
+<!-- player02 빈은 B주사위를 가지고 노는 빈이다. ... Setter로 주입해보자 
+	 player02.setDice(new DiceBImpl())
+-->
+	<bean id ="player02" class ="spring.service.dice.play.Player02">
+		<property name="dice" ref ="diceB"></property>
+	</bean>
+
+<!-- player03 빈은 C주사위를 가지고 노는 빈이다. ... 생성자로 주입해보자 -->
+	<bean id ="player03" class ="spring.service.dice.play.Player02">
+		<constructor-arg ref="diceC"></constructor-arg>
+	</bean>	
+	
+<!-- player04 빈은 A주사위를 가지고 노는 빈이다. ... 생성자로 주입해보자 -->
+	<bean id ="player04" class ="spring.service.dice.play.Player02">
+		<constructor-arg ref="diceA"></constructor-arg>
+	</bean>		
+	
+</beans>
