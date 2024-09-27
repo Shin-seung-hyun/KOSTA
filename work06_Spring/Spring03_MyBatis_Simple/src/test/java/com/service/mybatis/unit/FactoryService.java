@@ -1,0 +1,34 @@
+package com.service.mybatis.unit;
+
+import java.io.IOException;
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+//SqlSessionFactory까지만 받아오는 기능을 담는다.
+public class FactoryService {
+	
+	private static SqlSessionFactory factory= null;
+	
+	static {
+		try {
+			// 1. 설정 문서를 읽는다.
+			Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+			
+			// 2. SqlSessionFactory 생성
+			factory = new SqlSessionFactoryBuilder().build(r);
+			
+		}catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	public static SqlSessionFactory getFactory() {
+		return factory;
+	}
+	
+
+}
