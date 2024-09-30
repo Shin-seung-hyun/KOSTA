@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberMapper">
+
+	<sql id = "select-members">
+		SELECT 
+		id, password, name, address
+		FROM member
+	</sql>
+	
+	<sql id ="order-id-desc">
+		ORDER BY id DESC
+	</sql>
+
+	<insert id="registerMember" parameterType="memberVO">
+		INSERT
+		INTO member(id, password, name, address)
+		VALUES(#{id}, #{password}, #{name}, #{address})
+	</insert>
+	
+	<delete id="deleteMember" parameterType="string">
+		DELETE
+		FROM member
+		WHERE id = #{VALUE}
+	</delete>
+	
+	<update id ="updateMember" parameterType="memberVO">
+		UPDATE member
+		SET address = #{address}
+		WHERE id = #{id}
+	</update>
+	
+	<select id="showAllMember" resultType="memberVO">
+		<include refid="select-members"/>
+		<where>
+			<if test ="name != null">
+				name LIKE #{name}
+			</if>
+			<if test ="address != null">
+				OR address LIKE #{address}
+			</if>
+		</where>
+		<include refid="order-id-desc" />
+	</select>
+	
+	<select id="getMember" parameterType="string" resultType="memberVO">
+		<include refid="select-members"/>
+		WHERE id LIKE CONCAT(#{VALUE}, '%')
+	</select>
+	
+	<select id ="idExist" parameterType="string" resultType="memberVO">
+		<include refid="select-members"/>
+		WHERE id = #{id}
+	</select>
+	
+	<select id ="login" parameterType="memberVO" resultType="memberVO">
+		<include refid="select-members"/>
+		WHERE id = #{id} AND password = #{password}
+	</select>
+	
+</mapper>
+
+
+

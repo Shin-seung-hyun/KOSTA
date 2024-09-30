@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+<context:property-placeholder location="classpath:config/dbconn.properties" />
+
+<!-- 1. DataSource API Bean 정의 -->
+	<bean id ="dataSource" class = "org.apache.commons.dbcp.BasicDataSource" >
+		<property name="driverClassName" value="${jdbc.mysql.driver}"/>
+		<property name="url" value="${jdbc.mysql.url}"/>
+		<property name="username" value="${jdbc.mysql.username}"/>
+		<property name="password" value="${jdbc.mysql.password}"/>
+	</bean>
+
+<!-- 2. MyBatisFramework Bean 인 sqlSessionFactory API Bean 정의 -->
+	<bean id="sqlSessionFactoryBean" class ="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref = "dataSource" />
+		<property name="configLocation" value ="config/SqlMapConfig.xml"></property>
+	</bean>
+	
+<!-- 3. MyBatisFramework Bean 인 sqlSessionTemplate API Bean 정의 -->
+	<bean id = "sqlSessionTemplate" class ="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref ="sqlSessionFactoryBean" /> <!-- 이것은 생성자로 주입 받도록 돼있음-->
+	</bean>
+	
+<!-- 어노테이션을 썼기에 추가 
+	DI 컨테이너가 bean을 만드는데, 이 패키지의 컴포넌트의 어노테이션을 하나씩 확인해서 빈을 만들어라
+-->	
+	<context:component-scan base-package="spring.service.user.impl"></context:component-scan>
+	
+</beans>

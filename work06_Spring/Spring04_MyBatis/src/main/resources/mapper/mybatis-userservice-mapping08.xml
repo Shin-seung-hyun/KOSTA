@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- SQL 구문의 모듈화 :: SQL구문의 재사용성을 높이는 방법 :: sql, include 태그  -->
+
+<mapper namespace="UserMapper08">
+
+<!-- CamelCase 적용 -->
+	<resultMap type="user" id="UserSelectRM">
+		<result property="userId" column="user_id" />
+		<result property="userName" column="user_name" />
+		<result property="password" column="password" />
+		<result property="age" column="age" />
+		<result property="grade" column="grade" />
+		<result property="regDate" column="reg_date" />
+	</resultMap>
+	
+<!-- sql 구문의 모듈화 -->	
+	<sql id="select-users">
+		SELECT
+		user_id, user_name, password, age, grade, reg_date
+		FROM users
+	</sql>
+	
+	<sql id ="order-userid-desc">
+		ORDER BY user_id DESC
+	</sql>
+
+<!-- 정적 쿼리 -->
+	<select id="getUserList01" parameterType="user" resultMap="UserSelectRM" >
+		<include refid="select-users"/>
+		WHERE password = #{password}
+	</select>
+	
+<!-- 동적 쿼리 -->	
+	<select id="getUserList" parameterType="user" resultMap="UserSelectRM" >
+		<include refid="select-users"/>
+		<where>
+			<if test ="userName != null">
+				user_name LIKE #{userName}
+			</if>
+			<if test ="age != null">
+				OR age LIKE #{age}
+			</if>
+		</where>
+		<include refid="order-userid-desc" />
+	</select>
+
+</mapper>
