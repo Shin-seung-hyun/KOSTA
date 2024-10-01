@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberMapper">
+	<insert id="registerMember" parameterType="memberVO">
+		INSERT
+		INTO member(id, password, name, address)
+		VALUES(#{id}, #{password}, #{name}, #{address})
+	</insert>
+	
+	<select id="findAllMember" resultType="memberVO">
+		SELECT 
+		id, password, name, address
+		FROM member
+	</select>
+	
+	
+	<select id="getMember" parameterType="string" resultType="memberVO">
+		<!--아이디가 k로 시작하는 회원을 검색 : like 연산자와 와일드 카드 % 사용 -->
+		SELECT 
+		id, password, name, address
+		FROM member
+		WHERE id LIKE CONCAT(#{VALUE}, '%')
+	
+	</select>
+	
+	<delete id="deleteMember" parameterType="string">
+		<!-- 아이디가 mybatis인 회원을 삭제 -->
+		DELETE
+		FROM member
+		WHERE id = #{VALUE}
+	
+	</delete>
+
+</mapper>
+
+
+
