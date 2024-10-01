@@ -15,7 +15,7 @@ import mybatis.services.domain.User;
   * ㅇ TestUtil.java 을 이용 Test . 
   */
 public class MyBatisTestApp07 {
-	///Main method
+
 		public static void main(String[] args) throws Exception{
 			SqlSession session = null;
 			
@@ -51,8 +51,8 @@ public class MyBatisTestApp07 {
 			user.setAge(null);
 			TestUtil.printList((List)session.selectList("UserMapper07.getUserList",user) );
 		
-		}//end of main
-	}//end of class
+		}
+	}
 
 
 

@@ -17,7 +17,7 @@ import mybatis.services.user.impl.MyBatisUserDAOImpl10;
   *  ㅇ 다음은 Service Layer 단위 테스트 : MyBatisTestApp11.java
   */
 public class MyBatisTestApp102 {
-	///Main method
+
 	public static void main(String[] args) throws Exception{
 
 		SqlSession session = null;

@@ -18,8 +18,8 @@ import mybatis.services.domain.User;
 public class MyBatisTestApp01 {
 	public static void main(String[] args) throws Exception{
 		
-		///==> SqlMapConfig01.xml : MyBATIS Framework 의 핵심 환경설정화일 (MetaData)
-		//==> mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) 
+		///==> SqlMapConfig01.xml : MyBATIS Framework 의 핵심 환경설정파일 (MetaData)
+		//==> mybatis-userservice-mapping.xml : SQL 를 갖는 설정파일 (MetaData) 
 		
 		//==> 1. xml metadata 읽는 Stream 생성
 		Reader reader=Resources.getResourceAsReader("config/SqlMapConfig01.xml");
@@ -28,7 +28,7 @@ public class MyBatisTestApp01 {
 		
 		SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(reader);
 		
-	/* 기존에 있던 내용*/	
+	/* 기존에 있던 내용 : mybatis-userservice-mapping.xml */	
 		SqlSession session=factory.openSession();
 		List<User> list=session.selectList("UserMapper.getUserList");
 		
@@ -40,7 +40,7 @@ public class MyBatisTestApp01 {
 		}
 		System.out.println("\n");
 
-	/* 새로 추가한 내용*/	
+	/* 새로 추가한 내용 : mybatis-userservice-mapping01.xml*/	
 		//1. getUser :: 특정 userid 정보  :: user01은 단순파라미터
 		User user = (User)session.selectOne("UserMapper01.getUser", "user01");
 		System.out.println(":: 1. get(SELECT)  ? "+user.toString());

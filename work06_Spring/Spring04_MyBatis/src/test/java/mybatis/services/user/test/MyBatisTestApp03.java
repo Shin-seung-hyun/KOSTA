@@ -20,9 +20,6 @@ public class MyBatisTestApp03 {
 	///Main method
 	public static void main(String[] args) throws Exception{
 		
-		///==> SqlMapConfig.xml : MyBATIS Framework 의 핵심 환경설정화일 (MetaData)
-		//==> mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) 
-		
 		//==> 1. xml metadata 읽는 Stream 생성
 		Reader reader=Resources.getResourceAsReader("config/SqlMapConfig01.xml");
 		
@@ -71,7 +68,7 @@ public class MyBatisTestApp03 {
 		
 		//5.User03.removeUser Test
 		int deleteResult = session.delete("UserMapper03.removeUser", user.getUserId());
-		session.commit(); //이 부분 반드시 해줘야 한다.
+		session.commit(); 
 		System.out.println(":: 5. removeUser(DELETE) result ? "+deleteResult);
 		System.out.println("\n");
 		

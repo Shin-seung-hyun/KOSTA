@@ -28,7 +28,7 @@
 	
 	<update id ="updateMember" parameterType="memberVO">
 		UPDATE member
-		SET address = #{address}
+		SET password= #{password}, name= #{name}, address= #{address} 
 		WHERE id = #{id}
 	</update>
 	
@@ -47,7 +47,7 @@
 	
 	<select id="getMember" parameterType="string" resultType="memberVO">
 		<include refid="select-members"/>
-		WHERE id LIKE CONCAT(#{VALUE}, '%')
+		WHERE id LIKE CONCAT (#{VALUE}, '%')
 	</select>
 	
 	<select id ="idExist" parameterType="string" resultType="memberVO">

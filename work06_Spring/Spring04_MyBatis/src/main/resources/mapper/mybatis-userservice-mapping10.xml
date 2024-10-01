@@ -44,14 +44,12 @@
 			#{grade},
 			#{regDate}
 		)
-		
 	</insert>
 	
 	<update id="updateUser" parameterType="user">
 		UPDATE users
 		SET user_name = #{userName}
 		WHERE user_id = #{userId}
-	
 	</update>
 	
 	

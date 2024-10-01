@@ -13,7 +13,7 @@
 		grade,
 		reg_date AS regDate
 		FROM users
-		WHERE user_id LIKE #{VALUE} <!-- #{}는 원래 getter인데 ${VALUE}를 쓰면 단순 파라미터라는 뜻이다.  -->
+		WHERE user_id LIKE #{VALUE}
 	</select>
 	
 	

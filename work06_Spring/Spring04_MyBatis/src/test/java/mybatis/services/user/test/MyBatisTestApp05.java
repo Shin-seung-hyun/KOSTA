@@ -19,14 +19,8 @@ public class MyBatisTestApp05 {
 	///Main method
 	public static void main(String[] args) throws Exception{
 		
-		///==> SqlMapConfig.xml : MyBATIS Framework 의 핵심 환경설정화일 (MetaData)
-		//==> mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) 
-		
-		//==> 1. xml metadata 읽는 Stream 생성
 		Reader reader=Resources.getResourceAsReader("config/SqlMapConfig01.xml");
-		
-		//==> 2. Reader 객체를 이용 xml metadata 에 설정된 각정 정보를 접근, 사용가능한 
-		//==>   SqlSession  객체 생성
+
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
 		SqlSession session = factory.openSession();
 		

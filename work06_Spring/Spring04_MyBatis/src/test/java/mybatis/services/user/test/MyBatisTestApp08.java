@@ -16,7 +16,7 @@ import mybatis.services.domain.User;
   * ㅇ 다음은 MyBatisTestApp101.java : MyBatis Framework 단위 테스트
   */
 public class MyBatisTestApp08 {
-	///Main method
+	
 	public static void main(String[] args) throws Exception{
 		SqlSession session = null;
 		

@@ -14,6 +14,7 @@ import mybatis.services.domain.User;
 
 //SqlSessionFactory를 생성하는 놈..
 public class TestUtil {
+	
 	public static void printList(List<User> list){
 		for(int i=0; i<list.size();i++){
 			System.out.println("<"+(i+1+"> 번쨰 회원...."+list.get(i).toString()));

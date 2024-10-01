@@ -31,6 +31,6 @@
 <!-- 어노테이션을 썼기에 추가 
 	DI 컨테이너가 bean을 만드는데, 이 패키지의 컴포넌트의 어노테이션을 하나씩 확인해서 빈을 만들어라
 -->	
-	<context:component-scan base-package="spring.service.user.impl"></context:component-scan>
+	<context:component-scan base-package="spring.service.user.impl"/>
 	
 </beans>

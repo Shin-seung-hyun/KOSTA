@@ -13,7 +13,7 @@ MySQL의 핵심(!)이 되는 설정문서다.
 <configuration>
 
 <!-- 1. DB서버 정보를 가진 properties 파일을 wiring  :: DB 정보를 가진 상수값 :: 단위 테스트용 -->
- <properties resource="config/dbconn.properties" />
+<!--  <properties resource="config/dbconn.properties" /> -->
 
 
 <!--  NULL 값을 허용하는 옵션 지정 :: Oracle인 경우 반드시 지정해야 한다.-->
@@ -30,11 +30,11 @@ MySQL의 핵심(!)이 되는 설정문서다.
 
 
 <!-- 3. JDBC 환경 구축  :: DataSource 정보 (POOLED 방식으로 나중에 연결할 것) :: MyBatis Framework 단위테스트용-->
- 
+<!--  
 <environments default="aa">
 	<environment id="aa">
 		<transactionManager type="JDBC"/>
-		<!-- DriverManager 방식을 사용  -->
+		DriverManager 방식을 사용 
 		<dataSource type="UNPOOLED"> 
 			<property name="driver" value="${jdbc.mysql.driver}"/>
 			<property name="url" value="${jdbc.mysql.url}"/>
@@ -43,7 +43,7 @@ MySQL의 핵심(!)이 되는 설정문서다.
 		</dataSource>
 	</environment>
 </environments> 
-
+ -->
 
 
 <!-- 4. SQL구문의 모듈화된 정보를 wiring :: SQL 구문을 xml로 만듦 -->

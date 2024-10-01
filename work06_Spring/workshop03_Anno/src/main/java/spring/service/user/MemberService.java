@@ -8,7 +8,7 @@ public interface MemberService {
 	
 	void registerMember(MemberVO member);
 	void updateMember(MemberVO member);
-	MemberVO getMember(MemberVO member);
+	MemberVO getMember(String id);
 	List<MemberVO>showAllMember(MemberVO member);
 
 }

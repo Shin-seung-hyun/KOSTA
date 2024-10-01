@@ -10,8 +10,6 @@
 	CamelCase 규칙을 따르지 않을 때 반드시 사용해야 한다.
 	
 	2. 동적 쿼리 사용법
-	
-	
 
 -->
 <mapper namespace="UserMapper07">

@@ -23,8 +23,8 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public MemberVO getMember(MemberVO member) {
-		return sqlSession.selectOne(NS  + "getMember", member);
+	public MemberVO getMember(String id) {
+		return sqlSession.selectOne(NS  + "getMember", id);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public boolean idExist(String id) {
-		MemberDAO vo = (MemberDAO)sqlSession.selectOne(NS  + "idExist", id);
+		MemberVO vo = (MemberVO)sqlSession.selectOne(NS  + "idExist", id);
 		
 		if(vo == null) return false;
 		else return true;
