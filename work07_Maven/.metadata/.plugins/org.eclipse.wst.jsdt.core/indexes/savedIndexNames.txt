@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+C:\Users\seunghyun\STUDY\KOSTA\lecture\work07_Maven\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3798135692.index
+1017623954.index
+344783616.index
+1953520198.index
+654470260.index
+1736144072.index
+2772816787.index
+3385077542.index
+2266448807.index

@@ -1,0 +1,52 @@
+package com.service.spring.test;
+
+import java.io.Reader;
+import java.util.List;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.service.spring.domain.MyProduct;
+
+
+/* 
+	mybatis-fruit-mapping.xml에 sql 구문이 잘 만들어졌는지 확인
+	mybatis 프레임워크 부분이 잘 연결됐는지 여부를 점검하는 테스트
+	이부분이 완벽해야 persistence layer로 연결할 수 있다.
+	
+	
+	sqlMapConfig.xml을 읽어서 
+	SqlSessionFactory를 만들고
+	SqlSession으로
+	
+	CRUD 확인 .. 이때 반드시 commit 을 해야 한다.
+	
+*/
+public class MyBatisUnitTest01 {
+	public static void main(String [] args) throws Exception {
+		
+		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
+		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
+		
+		SqlSession session = factory.openSession();
+		
+		//쿼리문 실행
+		System.out.println("1. findProductByName");
+		List<MyProduct> productsByName = session.selectOne("ns.sql.MyProductMapper.findProductByName");
+		for(MyProduct i: productsByName) System.out.println(i);
+		
+		System.out.println("2. findProductByMaker");
+		List<MyProduct> productsByMaker= session.selectOne("ns.sql.MyProductMapper.findProductByMaker");
+		for(MyProduct i: productsByMaker) System.out.println(i);
+		
+		System.out.println("3. findProducts");
+		List<MyProduct> products= session.selectOne("ns.sql.MyProductMapper.findProductByMaker");
+		for(MyProduct i: productsByMaker) System.out.println(i);
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.service.spring.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.service.spring.dao.MyProductDAO;
+import com.service.spring.domain.MyProduct;
+
+
+@Service
+public class MyProductService {
+
+	@Autowired
+	private MyProductDAO myProductDAO;
+	
+	public List<MyProduct> findProductByName(String name) throws Exception{
+		return sqlSession.selectList(NS + "findProductByName", name);
+	}
+	
+	public List<MyProduct> findProductByMaker(String maker) throws Exception{
+		return sqlSession.selectList(NS + "findProductByMaker", maker);
+	}
+	
+
+	public List<MyProduct> findProducts() throws Exception{
+		return sqlSession.selectList(NS + "findProducts");
+	}
+}

@@ -1,0 +1,29 @@
+package com.service.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.service.spring.dao.ItemDAO;
+import com.service.spring.domain.Item;
+import com.service.spring.service.ItemCatalog;
+
+@Controller
+public class FruitController {
+	
+	@RequestMapping(value = "itemList.do")
+	public ModelAndView list(Item item) throws Exception {
+		
+		return new ModelAndView("itemList", "item", item);
+	}
+	
+	@RequestMapping(value = "itemList.do")
+	public ModelAndView detail(Item item) throws Exception {
+		
+		ItemCatalog item = new ItemCatalog();
+		
+		return new ModelAndView("itemView.do","fruit",item.get);
+	}
+	
+
+}

@@ -1,0 +1,8 @@
+package com.service.spring.controller;
+
+import org.springframework.web.servlet.mvc.Controller;
+
+public class MainController implements Controller{
+	
+
+}

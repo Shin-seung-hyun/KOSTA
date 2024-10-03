@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2 align="center">Form Controller Test...</h2>
+	<form action="form.do" method="post">
+		<ul>
+			<li> NAME : <input type ="text" name = "userName" id ="userName"></li>
+		</ul>
+	
+	
+	</form>
+</body>
+</html>

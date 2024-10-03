@@ -1,0 +1,12 @@
+package com.service.spring.vo;
+
+public class User {
+	private String userName;
+	private String userAddr;
+	private String id;
+	private String password;
+	
+	
+	
+
+}

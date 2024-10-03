@@ -1,0 +1,11 @@
+package com.service.spring.test;
+
+
+public class MyBatisJUnitTest02 {
+	
+	public void unit() throws Exception{
+		
+		
+	}
+
+}
