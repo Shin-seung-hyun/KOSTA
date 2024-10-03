@@ -1,0 +1,54 @@
+package com.service.spring.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.service.spring.dao.MyProductDAO;
+import com.service.spring.domain.MyProduct;
+import com.service.spring.service.MyProductService;
+
+@Controller
+public class MyProductController {
+	
+	@Autowired
+	private MyProductService myProductService;
+	
+	@Autowired
+	private MyProductDAO myProductDAO;
+	
+	@RequestMapping("/addMyProduct.do")
+	public ModelAndView add(MyProduct myProduct) throws Exception {
+		
+		myProductDAO.addProduct(myProduct);
+		
+		System.out.println(myProduct);
+		
+		return new ModelAndView("result");
+		
+	}
+
+	@RequestMapping("/serach.do")
+	public ModelAndView search( @RequestParam("searchBy") String str, String detail) throws Exception {
+		
+		System.out.println("serarchBy : "+ str + " detail : " + detail);
+		
+		List<MyProduct> list = null;
+		if( str.equals("maker"))
+			list = myProductService.findProductByMaker(detail);
+		else if( str.equals("name"))
+			list = myProductService.findProductByName(detail);
+		else
+			list = myProductService.findProducts();
+		
+		System.out.println(list.size());
+		
+		return new ModelAndView("result", "list", list);
+	}
+	
+}
