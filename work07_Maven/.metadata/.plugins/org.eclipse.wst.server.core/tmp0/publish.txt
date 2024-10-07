@@ -1,3 +1,2 @@
 #Tomcat publish data
-#Fri Oct 04 17:25:57 KST 2024
-org.eclipse.jst.jee.server\:workshop05=C\:\\KOSTA_SSH\\apache-tomcat-9.0.93\\wtpwebapps\\workshop05
+#Mon Oct 07 17:26:42 KST 2024

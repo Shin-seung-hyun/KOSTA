@@ -86,11 +86,13 @@ $(function() {
 	<c:if test="${not empty user}">
 		<h4>${user.name} 님 로그인 되었습니다. <a href="memberLogout.do">로그아웃</a></h4>
 	</c:if>
+	
 	<c:choose>
 		<c:when test="${empty list}"><!-- 도서목록이 없다 -->
 			<h4>등록된 도서 목록이 없습니다.</h4>
 		</c:when>
 		<c:otherwise>
+		<b><font color=crimson>${field}</font> 로 검색한 <font color=crimson>${text}</font> 관련 서적입니다.</b>
 			<table id="bookTable">
 				<tr>
 					<th  colspan="4">

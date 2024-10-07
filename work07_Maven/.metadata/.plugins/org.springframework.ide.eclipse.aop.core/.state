@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="maven01_SpringMVC"/>
-<aop-project name="workshop01"/>
+<aop-project name="workshop04_3_dynamic"/>
+<aop-project name="workshop04_2"/>
+<aop-project name="workshop05"/>
+<aop-project name="workshop04"/>
 <aop-project name="maven02_SpringMVC"/>
+<aop-project name="maven04_Board"/>
 <aop-project name="maven03_Fruits"/>
 </aop-reference-model>
