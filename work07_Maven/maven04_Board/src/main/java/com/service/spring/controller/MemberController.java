@@ -34,6 +34,9 @@ public class MemberController {
 				 
 				 path = "member/login_result";
 			}
+			else {
+				model.addAttribute("message", "로그인 실패");
+			}
 			 
 		} catch (Exception e) {
 			
@@ -41,11 +44,12 @@ public class MemberController {
 			System.out.println(e.getMessage());
 			
 		}
+		System.out.println(path);
 		return path;
 	}
 	
 	
-	@GetMapping("logout.do")
+	@RequestMapping("logout.do")
 	public String doLogout(HttpSession session) {
 		
 		Member mvo = (Member)session.getAttribute("mvo");

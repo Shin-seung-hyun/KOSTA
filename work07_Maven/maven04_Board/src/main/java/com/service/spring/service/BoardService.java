@@ -17,13 +17,14 @@ public class BoardService {
 	
 	
 	public int write(Board vo) {
-		int row= boardDAO.write(vo);
-		System.out.println("Before vo :: "+vo);
+		
+		System.out.println("Before vo :: "+vo); //no,w_date 가 없다 
+		int row= boardDAO.write(vo); // DB에 no이 자동 증가
 		
 		String date = boardDAO.selectByNoForDate(vo.getNo());
 		vo.setWriteDate(date);
 		
-		System.out.println("After vo :: "+vo);
+		System.out.println("After vo :: "+vo); //no가 있다
 		return row;
 	}
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="ns.sql.Phone">
+	
+<!--   -->
+	<insert id="insert" parameterType="phone">
+		INSERT INTO phones(num, model, price, vcode)
+		VALUES( #{num}, #{model}, #{price}, #{vcode})
+	</insert>	
+	
+	<resultMap type="phone" id="phoneWithCompany">	
+		<id property="num" column="num"/>
+		<result property="model" column="model"/>
+		<result property="price" column="price"/>
+		<result property="vcode" column="vcode"/>
+		<association property="company" javaType="company" >
+			<id property="vcode" column="vcode"/>
+			<result property="vendor" column="vendor"/>
+		</association>				
+	</resultMap>
+	
+	<!--  동적쿼리 :: 모든 폰 조회하기 & 특정 폰 조회하기 :: selectList() & selectOne() -->
+<!-- 	
+	<select id="select" parameterType="phone" resultMap="phoneWithCompany">join문 사용
+		SELECT p.num, p.model, p.price, c.vcode, c.vendor
+		FROM phones p , company c
+		WHERE p.vcode = c.vcode
+		<if test="num !=null" >
+			AND p.num = #{num}
+		</if>
+	</select> 
+-->
+	<select id="select" parameterType="phone" resultMap="phoneWithCompany"><!-- join문 사용 -->
+		SELECT p.num, p.model, p.price, c.vcode, c.vendor
+		FROM phones p JOIN company c
+		ON(p.vcode = c.vcode)
+			<if test="num !=null" >
+				AND p.num = #{num}
+			</if>
+	</select>
+	
+	<!--  동적쿼리 :: 로그인 기능과 특정고객 찾는 기능 -->
+	<select id="selectUser" parameterType="userInfo" resultType="userInfo">
+		SELECT id, pw
+		FROM userinfo
+		WHERE id = #{id}
+			<if test="pw != null">
+				AND pw = #{pw}
+			</if>
+	</select>
+	
+<!-- 여러 개의 phone을 삭제하는 동적 쿼리 -->	
+	<delete id="delete" parameterType="list">	
+		DELETE 
+		FROM phones
+		WHERE num in
+		<foreach collection="list" item="phone" open="(" separator="," close=")"> 
+			#{phone.num}
+		</foreach>
+	</delete>
+
+<!-- num에 해당하는  model, price, vcode가 수정의 대상 -->
+	<update id="update" parameterType="phone">	
+		UPDATE phones
+		SET model = #{model}, price =#{price}, vcode =#{vcode}
+		WHERE num = #{num}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+

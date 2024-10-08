@@ -5,14 +5,20 @@
 <mapper namespace="ns.sql.Board">
 	
 	<!-- 게시글 등록 : no는 자동완성된다. board 테이블의 id도(member의 컬럼) 추가하기 -->
-	<!-- MYSQL에 데이터가 입력될 때, no가 자동적으로 증가되도록 하려면?  -->
+	<!-- MYSQL에 데이터가 입력될 때, no가 자동적으로 증가되도록 하려면?  
+	
+		PK가 DB에서 자동증가될 때 동기화를 시켜줘야 한다.
+		useGeneratedKeys="true" 게시글 입력할 때, DB에서 자동으로 값을 증가시킨다.
+		keyProperty="no" board.setNo() 를 통해 자동증가된 no가 board에 주입된다.
+		결과적으로 pvo와 DB의 rvo 동기화가 진행된다. 
+	-->
 	<insert id="write" parameterType="board" useGeneratedKeys="true" keyProperty="no">
 		INSERT INTO springboard(title, content, w_date, id)
 		VALUES (#{title}, #{content}, curdate(), #{member.id})
 	</insert>
 
 	<!--   특정 게시글이 입력된 날짜를 디비에서 받아오는 쿼리문..-->
-	<select id="selectByNoForDate" parameterType="string" resultType="string">
+	<select id="selectByNoForDate" parameterType="int" resultType="string">
 		SELECT w_date
 		FROM springboard
 		WHERE no = #{VALUE}
