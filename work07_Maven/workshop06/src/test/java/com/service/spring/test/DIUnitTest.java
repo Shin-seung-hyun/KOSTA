@@ -29,7 +29,7 @@ public class DIUnitTest {
 	@Test
 	public void select()throws Exception {
 		System.out.println("===== 2. select =====");
-		List<Phone> list = service.select(vo);
+		List<Phone> list = service.select();
 		for(Phone p : list)
 			System.out.println(p);
 	}
@@ -37,7 +37,7 @@ public class DIUnitTest {
 	@Test
 	public void selectUser() throws Exception {
 		System.out.println("===== 3. selectUser =====");
-		UserInfo userInfo= service.selectUser(userinfo);
+		UserInfo userInfo= service.select(userinfo);
 		System.out.println(userInfo);
 	}
 	
@@ -52,7 +52,7 @@ public class DIUnitTest {
 	public void delete() throws Exception {
 		System.out.println("===== 5. delete =====");
 		
-		List<Phone> list = service.select(vo);
+		List<Phone> list = service.select();
 		System.out.println(list);
 		
 		try{System.out.println(service.delete(list));}

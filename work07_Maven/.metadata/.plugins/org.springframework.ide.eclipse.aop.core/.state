@@ -4,6 +4,7 @@
 <aop-project name="workshop04_3_dynamic"/>
 <aop-project name="workshop04_2"/>
 <aop-project name="workshop05"/>
+<aop-project name="workshop06"/>
 <aop-project name="workshop04"/>
 <aop-project name="maven02_SpringMVC"/>
 <aop-project name="maven04_Board"/>

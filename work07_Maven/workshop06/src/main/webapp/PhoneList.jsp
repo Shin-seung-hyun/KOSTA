@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!-- jquery cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 <body>
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -38,12 +43,13 @@
 
 <!-- 삭제 버튼시 비동기 처리  $(fuction(){ 생략 가능...-->
 <script>
+$(function(){
 	$('#selectedDel').click(function(){
 		//checkbox 선택된 num값들을 받아온다...	
 		var param = "";
 		$('input[type=checkbox]:checked').each(function(index, item){
 			param = param+"&num="+$(item).attr('data-num');
-		});//each		
+		});		
 		
 		$.ajax({
 			type:'post',
@@ -51,11 +57,15 @@
 			data:param,
 			
 			success:function(result){
-				location.reload();
-			}//callback		
-		});//ajax		
+				location.reload(); // 이 페이지를 다시 reload 시킨다. 
+			}	
+		});//ajax
+		
 	});//click
+});
+
 </script>
+
 </html>
 
 

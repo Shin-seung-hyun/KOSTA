@@ -23,16 +23,21 @@ public class PhoneDAO {
 	}
 	
 	// 특정폰, 모든 폰 조회
-	public List<Phone> select(Phone vo) {
-		return sqlSession.selectList(NS+"select", vo);
+	public List<Phone> select() {
+		return sqlSession.selectList(NS+"select");
 	}
 	
+	public Phone select(Phone vo) {
+		return sqlSession.selectOne(NS+"select",vo);
+	}
+	
+	
 	//로그인과 특정 고객 찾기
-	public UserInfo selectUser(UserInfo vo) {
+	public UserInfo select(UserInfo vo) {
 		return sqlSession.selectOne(NS+"selectUser", vo);
 	}
 	
-	public int delete(List<Phone> list) {
+	public int delete(List<String> list) {
 		return sqlSession.delete(NS+ "delete", list);
 	}
 	
