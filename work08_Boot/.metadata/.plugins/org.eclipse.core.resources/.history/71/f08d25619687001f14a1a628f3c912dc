@@ -1,0 +1,24 @@
+package com.web.spring;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import jakarta.transaction.Transactional;
+
+@SpringBootApplication
+public class Boot06JpaEntitiesApplication implements CommandLineRunner{
+	
+	@Override
+	@Transactional
+	public void run(String... args) throws Exception {
+		
+		
+	}
+
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Boot06JpaEntitiesApplication.class, args);
+	}
+
+}

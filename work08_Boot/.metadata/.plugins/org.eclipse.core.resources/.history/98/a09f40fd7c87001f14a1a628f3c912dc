@@ -1,0 +1,69 @@
+package com.web.spring.repository;
+
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.web.spring.entity.User;
+
+/*
+  이곳은 Spring Data JPA Repository 이다.
+  이전의 DAO와 같은 역할을 한다.
+  원래 인터페이스가 나오면 해당 인터페이스를 구현한 실체 클래스를 다시 상속 받아 작성해야 하지만 
+  Spring Data JPA 기술은 인터페이스를 구현하는 빈 클래스를 자동으로 생성시켜준다.
+  
+  JpaRepository<객체, 객체의 PK>
+ */
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+	
+	
+	
+	Optional<List<User>> findByName(String name);
+	
+	//findByLastnameAndFirstname
+	Optional<User> findByNameAndEmail(String name, String email);
+	
+	//findByLastnameOrFirstname
+	List<User> findByNameOrEmail(String name, String email);
+	
+	//고객의 id 값이 1~3 사이의 아이디를 가지는 고객을 검색
+	List<User> findByCustomIdBetween(int startId, int endId);
+	
+	//고객의 id가 3보다 작은 아이디를 가지는 고객을 검색
+	List<User> findByCustomIdLessThan(int customId);
+	
+	//고객의 등록일자가 어제 이후로 등록한 고객을 검색
+	List<User> findByRegDateAfter (LocalDateTime yesterday);
+	List<User> findByRegDateBefore (LocalDateTime yesterday);
+	
+	//고객의 이름이 null 값인 고객을 검색
+	List<User> findByNameIsNull();
+	List<User> findByNameIsNotNull();
+	
+	//고객 이름이 name인 고객을 검색 (단 와이들 카드 적용 안됨)
+	//SELECT * FROM custom WHERE name like ?;
+	List<User> findByNameLike(String name); // 값에다 %, _ 지정해야 한다.
+	
+	//SELECT * FROM custom WHERE name like "%종각";
+	List<User> findByNameEndingWith(String name);
+	
+	//findByAgeOrderByLastnameDesc
+	List<User> findByOrderByCustomIdDesc();
+	List<User> findByOrderByCustomId();
+	
+	//고객 id가 3보다 큰 아이디를 가지는 고객을 검색 + 아이디를 내림차순으로 정렬
+	//findByAgeGreaterThan
+	// 이런식으로 조건검색 뒤에 OrderBy절은 다 붙일 수 있다.
+	List<User> findByCustomIdGreaterThanOrderByCustomIdDesc(int customId);
+	
+	//고객 아이디가 1이거나 3이거나 5인 고객을 검색
+	List<User> findByCustomIdIn(Collection<Integer> ids);
+	
+	//Not은 null과는 비교하지 않는다. null은 출력되지 않는다.
+	List<User> findByNameNot(String name);
+	
+}

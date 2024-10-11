@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.web.spring.entity&apos; to &apos;boot05_JPARepository/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;boot04_JPA&apos;&#x0D;&#x0A;- Destination element: &apos;boot05_JPARepository/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;boot04_JPA/src/main/java/com.web.spring.entity&apos;" description="Copy package" destination="=boot05_JPARepository/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.web.spring.entity" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1728607003991" version="1.0"/>
+</session>

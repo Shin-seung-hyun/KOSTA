@@ -1,0 +1,45 @@
+package com.web.spring;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.web.spring.entity.Custom;
+import com.web.spring.repository.CustomRepository;
+
+import jakarta.transaction.Transactional;
+
+
+//CustomRepository 를 주입해야 한다. 즉, Spring Data JPA가 생성하는 빈을 여기서 가져다 쓴다는 얘기
+//따라서, CommandLineRunner를 implements 해야 한다.
+@SpringBootApplication
+public class Boot05JpaRepositoryApplication implements CommandLineRunner{
+
+	
+	// 주입된 해당 빈을 사용해서 CURD 작업을 다 할 수 있다.
+	// 트랜젝션 단위로 EntityManager가 내부적으로 모든 일을 처리한다.
+	@Autowired
+	private CustomRepository customRepository;
+	
+	@Override
+	@Transactional //JPA 메소드가 호출될 때, 트랜잭션이 실행되고, 메소드가 종료될 때, 트랜젝션이 끝난다.
+	public void run(String... args) throws Exception {
+//		Optional<Custom> ot = customRepository.findById(1);
+//		System.out.println(ot);
+		
+		// Optional은 null값을 핸들링하기 좋음
+		Custom c = customRepository.findById(1).orElseThrow();
+	
+	}
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Boot05JpaRepositoryApplication.class, args);
+	}
+
+
+
+}

@@ -1,0 +1,30 @@
+package com.web.spring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+
+//Spring Framework에서 빈으로 제공되는 것들을 사용하기 위해서는 CommandLineRunner 를 상속받으면 된다.
+@SpringBootApplication
+public class Boot04JpaApplication implements CommandLineRunner{
+	
+	@Autowired
+	EntityManagerFactory entityManagerFactory; 
+	
+	@Override
+	public void run(String... args) throws Exception {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(Boot04JpaApplication.class, args);
+	}
+
+}

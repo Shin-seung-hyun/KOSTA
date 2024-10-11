@@ -1,0 +1,20 @@
+package com.web.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+/*
+ * SSR 방식을 컨트롤러
+ * 결과 페이지를 JSP 사용하고,
+ * 결과 페이지를 서버 사이드에서 생성해서 클라이언트 사이드로 리턴한다.
+ * 
+ * 
+ * */
+
+@Controller
+public class indexController {
+
+	
+}

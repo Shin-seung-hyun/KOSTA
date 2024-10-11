@@ -1,0 +1,95 @@
+package com.web.spring;
+
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.web.spring.entity.Custom;
+import com.web.spring.repository.CustomRepository;
+
+import jakarta.transaction.Transactional;
+
+
+//CustomRepository 를 주입해야 한다. 즉, Spring Data JPA가 생성하는 빈을 여기서 가져다 쓴다는 얘기
+//따라서, CommandLineRunner를 implements 해야 한다.
+@SpringBootApplication
+public class Boot05JpaRepositoryApplication implements CommandLineRunner{
+
+	
+	// 주입된 해당 빈을 사용해서 CURD 작업을 다 할 수 있다.
+	// 트랜젝션 단위로 EntityManager가 내부적으로 모든 일을 처리한다.
+	@Autowired
+	private CustomRepository customRepository;
+	
+	@Override
+	@Transactional //JPA 메소드가 호출될 때, 트랜잭션이 실행되고, 메소드가 종료될 때, 트랜젝션이 끝난다.
+	public void run(String... args) throws Exception {
+//		Optional<Custom> ot = customRepository.findById(1);
+//		System.out.println(ot);
+		
+		// Optional은 null값을 핸들링하기 좋음
+//		Custom c = customRepository.findById(1).orElseThrow();
+//		System.out.println("1번 고객에 대한 정보 : " + c);
+		
+		/*
+		CustomRepository를 실제로 구현하고 있는 구현체를 출력해보자
+		System.out.println(customRepository.getClass().getName()); // JPA가 인터페이스를 어떤 실체 이름으로 만들었는지 확인해보자 
+			jdk.proxy7.$Proxy132
+			::
+			Proxy란?
+			인터페이스를 구현하고 있는 객체를 동적으로 생성해주는 자바 기술이다.
+			모든 자바 프레임워크 구현체들은 Proxy기술을 이용해서 만들어진다.
+		
+		*/
+		
+	/* [Create] 새로운 Custom 추가 */
+//		Custom c1 = new Custom();
+//		c1.setName("아이유");
+//		c1.setEmail("iu@gmail.com");
+//		c1.setPassword("7777");
+//		c1.setRegDate(LocalDateTime.now());
+//		
+//		customRepository.save(c1);
+		
+	/* [Delete] Custom 삭제 : select -> delete 함 */
+		//이는 데이터의 양이 많을 때, 두번씩 돌아가서 비효율적일 수 있다.
+		//customRepository.deleteById(5);
+		
+		//따라서 아래가 더 좋은 쿼리를 만든다.
+			//Optional로 null 값 처리
+			//같은 트랜잭션에 있으니 캐시에 있으면 delete문 하나만 호출될 수도 있다.
+//		Custom delteC= customRepository.findById(6).orElseThrow();
+//		customRepository.delete(delteC);
+		
+	/* [Update] update는 따로 제공되지 않는다.*/
+		//update는 Entity 정보와 스냅샷 정보가 다를 때, 트랜잭션이 완료되는 시점에 이걸 감지하고, update가 자동으로 호출된다.
+//		Custom updateC= customRepository.findById(1).orElseThrow();
+//		System.out.println("Update 전 : " + updateC); // 스냅샷에 저장된 정보
+//		
+//		updateC.setPassword("0000"); // 변경 : Entity 정보가 변경됨
+//		System.out.println("Update 후 : " + updateC); // 트랜잭션이 끝날 때, 스냅샷 정보와 Entity 정보의 차이점을 비교(감지)
+//		
+
+		//Query Method!!! 
+		//customRepository.findByNameLike("홍%").forEach(c->System.out.println(c));
+		
+		//customRepository.findByNameEndingWith("종각").forEach(c->System.out.println(c));
+		
+		//customRepository.findByCustomIdGreaterThanOrderByCustomIdDesc(2).forEach(c->System.out.println(c));
+	
+		List<Integer> customerIds = Arrays.asList(1, 2, 7);
+		customRepository.findByCustomIdIn(customerIds).forEach(c->System.out.println(c));
+	}
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Boot05JpaRepositoryApplication.class, args);
+	}
+
+}

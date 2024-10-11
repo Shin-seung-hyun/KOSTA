@@ -1,0 +1,14 @@
+package com.web.spring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+//Spring Framework에서 빈으로 제공되는 것들을 사용하기 위해서는 CommandLineRunner 를 상속받으면된다.
+@SpringBootApplication
+public class Boot04JpaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Boot04JpaApplication.class, args);
+	}
+
+}

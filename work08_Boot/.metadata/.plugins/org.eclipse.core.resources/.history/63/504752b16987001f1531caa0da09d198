@@ -1,0 +1,11 @@
+package com.web.spring.repository;
+
+
+/*
+  Spring Data JPA Repository 이다.
+  이전의 DAO와 같은 역할을 한다.
+  
+ */
+public interface CustomRepository {
+
+}

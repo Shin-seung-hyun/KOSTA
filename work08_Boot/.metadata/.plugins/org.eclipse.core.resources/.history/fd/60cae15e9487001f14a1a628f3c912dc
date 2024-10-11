@@ -1,0 +1,16 @@
+package com.web.spring.entity;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class Role {
+	
+	private Integer roleId; // DB : role_id
+	private String name;
+	
+
+}

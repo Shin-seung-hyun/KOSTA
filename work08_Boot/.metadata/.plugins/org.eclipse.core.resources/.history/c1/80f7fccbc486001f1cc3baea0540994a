@@ -1,0 +1,12 @@
+package com.web.spring.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class PostController {
+
+	//복수로 사용하는 것이 컨벤션
+	@PostMapping("/members")
+	public String insertMember() 
+}

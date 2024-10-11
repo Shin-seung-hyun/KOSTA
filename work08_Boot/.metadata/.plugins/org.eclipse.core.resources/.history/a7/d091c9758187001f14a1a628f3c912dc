@@ -1,0 +1,72 @@
+package com.web.spring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.web.spring.entity.User;
+import com.web.spring.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
+
+@SpringBootApplication
+public class Workshop02Application implements CommandLineRunner{
+
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Override
+	@Transactional
+	public void run(String... args) throws Exception {
+		
+		//CREATE
+		System.out.println("============CREATE=============");
+		User user = new User();
+		user.setName("박종각");
+		user.setPassword("1100");
+		
+		userRepository.save(user);
+		
+//		//READ
+//		System.out.println("============READ=============");
+//		System.out.print("findAll >> ");
+//		userRepository.findAll().forEach(u-> System.out.println(u));
+//		System.out.print("findById >> ");
+//		User readU= userRepository.findById(1).orElseThrow();
+//		System.out.println(readU);
+//		System.out.println();
+//		
+//		//UPDATE
+//		System.out.println("============UPDATE=============");
+//		User updateU= userRepository.findById(2).orElseThrow();
+//		System.out.println("Update 전 : " + readU);
+//		updateU.setPassword("0000");
+//		System.out.println("Update 후 : " + readU);
+//		System.out.println();
+//		
+//		//DELTE
+//		System.out.println("============DELTE=============");
+//		User deleteU = userRepository.findById(2).orElseThrow();
+//		userRepository.delete(deleteU);
+//		System.out.println();
+	
+		/* Query Method */ 
+//		//추가1. 이름에 종각을 포함하는 User id 로 내림차순 정렬
+//		userRepository.findByNameContainingOrderByIdDesc("종각")
+//					.forEach(u->System.out.println(u));
+//		//추가2. 이름을 중복 제거하고 이름별 오름차순 정렬
+//		userRepository.findDistinctByNameOrderByNameDesc()
+//					.forEach(s->System.out.println(s));
+//		
+//		//추가3. 이름이 홍종각이거나 id가 1인사람 검색
+//		userRepository.findByNameOrId("홍종각", 1)
+//					.forEach(u->System.out.println(u));
+	}
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Workshop02Application.class, args);
+	}
+}

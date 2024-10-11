@@ -1,0 +1,63 @@
+package com.web.spring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.web.spring.repository.CustomRepository;
+import com.web.spring.repository.RoleRepository;
+
+import jakarta.transaction.Transactional;
+
+@SpringBootApplication
+public class Boot06JpaEntitiesApplication implements CommandLineRunner{
+	
+	@Autowired
+	RoleRepository rolRepository;
+	
+	@Autowired
+	CustomRepository customRepository;
+	
+	@Override
+	@Transactional
+	public void run(String... args) throws Exception {
+		
+		//모든 Role 정보를 받아온다.
+//		rolRepository.findAll() .forEach(r->System.out.println(r));
+		
+		//모든 Custom 정보를 받아온다.
+//		customRepository.findAll() 
+//						.forEach(c->System.out.println(c));
+		
+		//고객정보도 함께 가져오자
+		/* [N(고객수) + 1(전체고객 select) 문제 발생!!]
+		 * findAll() -> select * from custom; // 한번의 쿼리로 전체 Custom을 받아온다.
+		 * c.getRoles()	-> select * from custom_role join role where custom_id=? : id 개수만큼 돈다.  
+		 * 
+		 * 이런 문제를 N+1 문제라고 한다.
+		 * 만약 Custom 레코드 수가 많다면 심각한 성능 저하에 빠진다.
+		 * 
+		 * 연관관계가 설정된 엔터티를 조회할 경우, findAll로 조회할 경우, 데이터의 개수(N)개 만큼 조인 select 절이 계속 실행된다.
+		 * 
+		 * Custom 테이블의 Role 정보를 받아오기 위해 
+		 * Custom -- custom_role -- role 여기 안에 있는 데이터를 한번의 쿼리문으로 받아올 수 없을까..?
+		 * 
+		 * 
+		 */
+		
+		customRepository.findAll()		
+						.forEach(c->{
+							System.out.println(c);
+							System.out.println(c.getRoles());
+							System.out.println("==========");
+						});
+		
+	}
+
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Boot06JpaEntitiesApplication.class, args);
+	}
+
+}

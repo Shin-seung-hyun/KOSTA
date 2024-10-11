@@ -1,0 +1,62 @@
+package com.web.spring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.web.spring.entity.User;
+import com.web.spring.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
+
+@SpringBootApplication
+public class Workshop02Application implements CommandLineRunner{
+
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Override
+	@Transactional
+	public void run(String... args) throws Exception {
+		
+		//CREATE
+		System.out.println("============CREATE=============");
+		User user = new User();
+		user.setName("박종각");
+		user.setPassword("qwer1");
+		
+		userRepository.save(user);
+		
+		//READ
+		System.out.println("============READ=============");
+		userRepository.findAll().forEach(u-> System.out.println(u));
+		User readU= userRepository.findById(1).orElseThrow();
+		System.out.println(readU);
+		
+		//UPDATE
+		System.out.println("============UPDATE=============");
+		User updateU= userRepository.findById(2).orElseThrow();
+		System.out.println("Update 전 : " + readU);
+		updateU.setPassword("0000");
+		System.out.println("Update 후 : " + readU);
+		
+		//DELTE
+		System.out.println("============DELTE=============");
+		User deleteU = userRepository.findById(2).orElseThrow();
+		userRepository.delete(deleteU);
+	
+		//추가1.
+		
+		//추가2.
+		
+		//추가3.
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Workshop02Application.class, args);
+	}
+}

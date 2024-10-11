@@ -1,0 +1,31 @@
+package com.web.spring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.web.spring.repository.RoleRepository;
+
+import jakarta.transaction.Transactional;
+
+@SpringBootApplication
+public class Boot06JpaEntitiesApplication implements CommandLineRunner{
+	
+	@Autowired
+	RoleRepository rolRepository;
+	
+	@Override
+	@Transactional
+	public void run(String... args) throws Exception {
+		
+		
+		
+	}
+
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Boot06JpaEntitiesApplication.class, args);
+	}
+
+}
