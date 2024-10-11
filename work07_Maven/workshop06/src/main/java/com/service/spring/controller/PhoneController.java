@@ -106,7 +106,10 @@ public class PhoneController {
 	@PostMapping("deleteAjax.do")
 	@ResponseBody
 	public String doAjaxDelete(@RequestParam List<String> num,  Model model) {
+		
+		num.forEach(s -> System.out.println(s));
 		try {
+			
 			phoneService.delete(num);
 			return "";
 			

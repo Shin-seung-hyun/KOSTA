@@ -57,7 +57,7 @@
 		FROM phones
 		WHERE num in
 		<foreach collection="list" item="phone" open="(" separator="," close=")"> 
-			#{phone.num}
+			#{phone}
 		</foreach>
 	</delete>
 
