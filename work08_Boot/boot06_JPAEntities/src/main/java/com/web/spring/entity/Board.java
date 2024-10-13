@@ -24,7 +24,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-//@ToString
+@ToString
 public class Board {
 
 	@Id
@@ -47,15 +47,15 @@ public class Board {
 	//한명의 회원이 여러 개의 게시물을 작성한다.
 	//ManyToOne | OneToMany 
 	// 현재 존재하는 클래스, Board 중심 (N)  -- Custom(1)
-	@ManyToOne(fetch = FetchType.LAZY) 
+	@ManyToOne(fetch = FetchType.EAGER ) 
 	@JoinColumn(name="custom_id")
 	private Custom custom;
 	
-	//연관된 객체는 제외
-	@Override
-	public String toString() {
-		return "Board [boardId=" + boardId + ", title=" + title + ", content=" + content + ", regDate=" + regDate + "]";
-	}
+//	//연관된 객체는 제외
+//	@Override
+//	public String toString() {
+//		return "Board [boardId=" + boardId + ", title=" + title + ", content=" + content + ", regDate=" + regDate + "]";
+//	}
 	
 //	@Override
 //	public String toString() {

@@ -1,0 +1,45 @@
+drop table custom;
+drop table board;
+
+
+desc custom;
+desc custom_role;
+desc board;
+desc role;
+
+
+select * from custom_role;
+select * from role;
+select * from custom;
+select * from custom_role;
+select * from user;
+
+insert into custom(name, email, password) VALUES("박박박", "park@naver.com","1234");
+
+-- custom_role : 권한 부여
+insert into custom_role VALUES(10,2);
+
+
+select custom_id, regDate, name, password, email, role_id, name
+from custom c, custom_role cr , role r;
+
+select * 
+from custom, custom_role, role
+where custom.custom_id =  custom_role.custom_id
+and
+custom_role.role_id = role.role_id
+order by custom.custom_id;
+
+insert into board(title, content, count, regDate, custom_id) 
+VALUES("첫번째 글", "내용입니다.", 0, curdate(), 1 );
+
+insert into board(title, content, count, regDate, custom_id) 
+VALUES("두번째 글", "내용2입니다.", 0, curdate(), 2 );
+select * from board;
+desc board;
+
+delete from custom where custom_id=4;
+
+
+insert into role( name) VALUES( "ROLE_UESR");
+insert into role( name) VALUES( "ROLE_ADMIN");

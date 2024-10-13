@@ -30,14 +30,14 @@ public class Boot04JpaApplication implements CommandLineRunner{
 			
 		/* insert  : persist()  */
 //			Custom c = new Custom();
-//			c.setName("김종각2");
+//			c.setName("김종각");
 //			c.setPassword("4321");
 //			c.setEmail("kim@gmail.com");
 //		
 //			entityManager.persist(c);
 			
 		/* select : find() */
-//			Custom find1 = entityManager.find(Custom.class, 1);
+//			Custom find1 = entityManager.find(Custom.class, "1");
 //			System.out.println("id가 1인 고객 정보 : " + find1);
 			
 		
@@ -52,15 +52,15 @@ public class Boot04JpaApplication implements CommandLineRunner{
 //			
 //			Custom find22 = entityManager.find(Custom.class, 2);
 //			if(find2 == find22)System.out.println("동일한 객체입니다!!");
-//			Custom c = new Custom();
-//			c.setName("James");
-//			c.setPassword("7777");
-//			c.setEmail("james@kosta.com");
-//		
-//			entityManager.persist(c);
+			Custom c = new Custom();
+			c.setName("James");
+			c.setPassword("7777");
+			c.setEmail("james@kosta.com");
+		
+			entityManager.persist(c);
 //			
-//			Custom find4 = entityManager.find(Custom.class, 4);
-//			System.out.println("id가 4인 고객 정보 : " + find4);
+			Custom find3 = entityManager.find(Custom.class, 3);
+			System.out.println("id가 3인 고객 정보 : " + find3);
 			
 			
 		/* delete : find()로 찾고, remove()하기 */
@@ -69,7 +69,7 @@ public class Boot04JpaApplication implements CommandLineRunner{
 			
 		/* update : JPA에서는 update가 존재하지 않는다. */
 			//4번 고객의 정보를 수정
-			Custom find4 = entityManager.find(Custom.class, 4);
+			Custom find4 = entityManager.find(Custom.class, 2);
 			find4.setPassword("9999"); // 비번 변경
 			System.out.println("4번고객의 정보 : "+ find4);
 		

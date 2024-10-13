@@ -9,10 +9,10 @@ import com.web.spring.entity.Product;
 public interface ProductRepository extends JpaRepository<Product, Long>{
 	
 	//1) 모든 상품의 개수를 받아오는 쿼리 메소드
-	Long countByProNo();
+	Long countBy();
 	
 	
 	//2) 조회한 상품 중에 2건만 제한해서 받아오는 쿼리 메소드
-	List<Product> findOrderedByProNoLimitedTo(int limit);
+	List<Product> findTop2ByOrderByProNoAsc();
 	
 }

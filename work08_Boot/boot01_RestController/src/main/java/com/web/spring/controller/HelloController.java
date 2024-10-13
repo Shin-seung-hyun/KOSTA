@@ -13,7 +13,7 @@ public class HelloController {
 		System.out.println("Hello Spring Boot~~!!");
 		return "Hello Index!";
 	}
-	
+	 
 	@GetMapping("hello")
 	public String hello() {
 		return "Hello~~~ SpringBoot~~!!";

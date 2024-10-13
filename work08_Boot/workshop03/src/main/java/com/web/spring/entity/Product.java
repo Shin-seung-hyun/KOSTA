@@ -25,6 +25,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+//@ToString
 public class Product {
 
 	@Id
@@ -38,9 +39,6 @@ public class Product {
 	
 	@CreationTimestamp
 	private LocalDateTime regDate; 
-
-	@OneToMany
-	private List<Order> orders;
 
 	@Override
 	public String toString() {

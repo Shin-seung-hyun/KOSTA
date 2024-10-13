@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.web.spring.dto.Member;
 
-@RestController("api/v1")
-@RequestMapping
+@RestController
+@RequestMapping("api/v1")
 public class PutControlller {
 
 /*
