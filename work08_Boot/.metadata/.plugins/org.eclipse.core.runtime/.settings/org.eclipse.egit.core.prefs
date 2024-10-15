@@ -1,4 +1,5 @@
 GitRepositoriesView.GitDirectories=C\:\\KOSTA_SSH\\.git;
 GitRepositoriesView.GitDirectories.relative=C\:\\KOSTA_SSH\\.git;
 core_autoIgnoreDerivedResources=false
+core_ssh_default_agent=\\\\.\\pageant
 eclipse.preferences.version=1
