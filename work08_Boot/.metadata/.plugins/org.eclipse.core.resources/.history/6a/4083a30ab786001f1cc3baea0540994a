@@ -1,3 +1,0 @@
-spring.application.name=boot03_RestController
-
-server.port=9000
