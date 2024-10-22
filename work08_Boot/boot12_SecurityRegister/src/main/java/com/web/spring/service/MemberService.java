@@ -33,10 +33,11 @@ public class MemberService {
 		// 비번 암호화
 		String endPwd = passwordEncoder.encode(member.getPwd());
 		
-		log.info("endPwd ======>{}",endPwd);
+		log.info("endPwd ======> {}",endPwd);
 		member.setPwd(endPwd);	
 		
 		//Role 설정
+		//react의 폼에서 온 회원들은 모두 일반 권한을 가진다.
 		member.setRole("ROLE_USER"); // 지금은 앞부분에 ROLE_ 를 넣어줘야 한다.
 		
 		Member savedMember = memberRepository.save(member);
