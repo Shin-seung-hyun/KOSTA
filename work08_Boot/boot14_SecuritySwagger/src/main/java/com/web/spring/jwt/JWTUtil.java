@@ -52,6 +52,8 @@ public class JWTUtil {
         return re;
     }
     
+    //이런것을 클레임이라고 함.
+    //MemberNo를 검증
     public Long getMemberNo(String token) {
         log.info("getRole(String token)  call");
         Long re = Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload().get("memberNo", Long.class);
@@ -66,6 +68,8 @@ public class JWTUtil {
         log.info("isExpired(String token)  re  = {}",re);
         return re;
     }
+    
+    //토큰 생성
     //Bearer : JWT 혹은 Oauth에 대한 토큰을 사용
     //public String createJwt(String username, String role, Long expiredMs) {
     //claim은 payload에 해당하는 정보
@@ -78,7 +82,7 @@ public class JWTUtil {
                 .claim("memberNo", member.getMemberNo())
                 .issuedAt(new Date(System.currentTimeMillis())) //현재로그인된 시간
                 .expiration(new Date(System.currentTimeMillis() + expiredMs)) //만료시간
-                .signWith(secretKey)
+                .signWith(secretKey) // 서명과 함께 저장됨
                 .compact();
     }
 }

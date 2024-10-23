@@ -35,7 +35,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BoardController {
 	
-	private final MemberRepository memberRepository;
 	private final BoardService boardService;
 
 	   /**
@@ -106,7 +105,7 @@ public class BoardController {
 			log.info("Authentication getName =  {} " , name);
 			log.info("Authentication  authentication.getPrincipal() =  {} " ,  authentication.getPrincipal());
 			
-			if(name!=null && !name.equals("anonymousUser")) {
+			if(name!=null && !name.equals("anonymousUser")) { //인증을 안 받았거나 토큰이 없다면
 				CustomMemberDetails customMemberDetails = (CustomMemberDetails) authentication.getPrincipal();
 				Member m = customMemberDetails.getMember();
 				System.out.println(m);
@@ -119,7 +118,7 @@ public class BoardController {
 				
 			}
 			
-			return new ResponseEntity<>(board ,HttpStatus.FORBIDDEN);
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN); //403
 		}
 
 
