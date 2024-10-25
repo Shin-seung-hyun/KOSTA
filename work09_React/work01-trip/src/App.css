@@ -1,0 +1,21 @@
+.body{
+  margin: 0px auto;
+  display: flex;
+  width: 500px;
+  height: 500px;
+}
+
+img{
+  border: 5px solid blue;
+  border-radius: 50px;
+  justify-content: center;
+}
+
+.appBody{
+  margin: 0px auto;
+  width: 600px;
+}
+
+.header{
+  margin: 0 auto;
+}
