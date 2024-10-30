@@ -18,8 +18,8 @@ function App() {
   // 여행지가 변경되면 그때마다 화면의 내용이 변경된다. -> 상태값으로 처리한다. useState()
   let locations = ["인도", "라오스", "마다가스카르","스페인", "하와이"];
   let [loc, setLoc] = useState(["Best Like Trip ~~", locations])
-  let [likes, setLikes] = useState(Array(locations.length).fill(0));
-  
+  //let [likes, setLikes] = useState(Array(locations.length).fill(0));
+  let [likes, setLikes] = useState(new Array(locations.length).fill(0));
 
   return (
     <div className="App">
@@ -33,10 +33,10 @@ function App() {
 
       {
         locations.map( (location, idx) => (
-          <div className='list' key ={idx}>
+          <div className='list'>
             <h3>{location} 
               <span onClick={()=>{
-                const newLikes = [...likes];
+                let newLikes = [...likes];
                 newLikes[idx] += 1;
                 setLikes(newLikes);
               }}>👍</span> 

@@ -8,6 +8,7 @@ const StyledFooter = styled.div`
     margin-left: 400px;
     list-style: none;
     padding-top : 40px;
+    margin-top: 30px;
 
 `
 
