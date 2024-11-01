@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.form-label{
+  text-align: left;
+  display: block;
+
+}
+
+input{
+  border: 5px solid black;
+}
